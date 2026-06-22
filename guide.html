@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>外免切替・本免许备考指南 | 日本驾照中文攻略 | jpdrivingtest.com</title>
+<meta name="description" content="2025年最新外免切替（外国驾照换证）和本免许学科考试中文备考指南。覆盖申请流程、材料清单、考试须知，帮助中国驾照持有者顺利换取日本驾照。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+:root{
+  --red:#D7263D;--red-light:#fff0f2;
+  --blue:#1a5fa8;--blue-light:#f0f5ff;
+  --green:#1a7a4a;--green-light:#edfaf3;
+  --orange:#e07b00;--orange-light:#fff8ed;
+  --ink:#1a1a2e;--ink-soft:#4a4a6a;--border:#e0e0f0;--bg:#f7f7fb;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;font-size:14px;line-height:1.7;}
+header{background:var(--ink);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
+.logo-text{color:white;font-size:14px;font-weight:700;}
+.logo-sub{color:#888;font-size:10px;}
+nav{display:flex;gap:16px;}
+nav a{color:#aaa;font-size:12px;text-decoration:none;}
+nav a:hover{color:white;}
+nav a.active{color:white;font-weight:700;}
+
+.hero{background:linear-gradient(135deg,var(--ink) 0%,#2d2d5e 100%);color:white;padding:48px 20px;text-align:center;}
+.hero-badge{display:inline-block;background:rgba(215,38,61,.3);color:#fca5a5;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+.hero h1{font-size:26px;font-weight:700;line-height:1.4;margin-bottom:10px;}
+.hero h1 span{color:#f87171;}
+.hero p{color:#94a3b8;font-size:13px;max-width:560px;margin:0 auto;}
+
+.container{max-width:760px;margin:0 auto;padding:40px 16px 60px;}
+
+/* TOC */
+.toc{background:white;border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:32px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--ink-soft);letter-spacing:1px;margin-bottom:12px;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.toc-list li a{color:var(--blue);text-decoration:none;font-size:13px;}
+.toc-list li a:hover{text-decoration:underline;}
+.toc-num{color:var(--ink-soft);margin-right:8px;font-size:11px;}
+
+/* Section */
+.section{margin-bottom:40px;}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border);}
+.section-icon{font-size:22px;}
+.section-title{font-size:18px;font-weight:700;}
+.section-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;background:var(--red-light);color:var(--red);}
+
+/* Cards */
+.info-card{background:white;border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:12px;}
+.info-card-title{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--ink);}
+.info-card p{font-size:13px;color:var(--ink-soft);line-height:1.7;}
+
+/* Highlight boxes */
+.highlight{border-radius:10px;padding:14px 16px;margin-bottom:12px;font-size:13px;line-height:1.7;}
+.highlight.red{background:var(--red-light);border-left:3px solid var(--red);}
+.highlight.blue{background:var(--blue-light);border-left:3px solid var(--blue);}
+.highlight.green{background:var(--green-light);border-left:3px solid var(--green);}
+.highlight.orange{background:var(--orange-light);border-left:3px solid var(--orange);}
+.highlight strong{display:block;margin-bottom:4px;}
+
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);}
+.step:last-child{border-bottom:none;}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--red);color:white;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-num.blue{background:var(--blue);}
+.step-content h3{font-size:14px;font-weight:700;margin-bottom:4px;}
+.step-content p{font-size:13px;color:var(--ink-soft);line-height:1.65;}
+.step-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;margin-top:6px;}
+.step-tag.red{background:var(--red-light);color:var(--red);}
+.step-tag.blue{background:var(--blue-light);color:var(--blue);}
+.step-tag.green{background:var(--green-light);color:var(--green);}
+
+/* Checklist */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.6;}
+.checklist li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.checklist li.warn::before{content:'⚠';color:var(--orange);}
+.checklist li.cross::before{content:'✕';color:var(--red);}
+
+/* Compare table */
+.compare-table{width:100%;border-collapse:collapse;margin-bottom:12px;border-radius:10px;overflow:hidden;}
+.compare-table th{background:var(--ink);color:white;padding:10px 14px;font-size:12px;font-weight:700;text-align:left;}
+.compare-table td{padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border);background:white;}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table td:first-child{font-weight:700;color:var(--ink-soft);white-space:nowrap;}
+.compare-table .new{color:var(--red);font-weight:700;}
+
+/* FAQ */
+.faq{background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px;}
+.faq-q{padding:14px 18px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;}
+.faq-q::after{content:'＋';color:var(--ink-soft);font-size:16px;}
+.faq-a{padding:0 18px 14px;font-size:13px;color:var(--ink-soft);line-height:1.7;display:none;}
+.faq.open .faq-q::after{content:'－';}
+.faq.open .faq-a{display:block;}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--red) 0%,#b81f32 100%);border-radius:16px;padding:28px 24px;text-align:center;color:white;margin-top:40px;}
+.cta h2{font-size:20px;font-weight:700;margin-bottom:8px;}
+.cta p{font-size:13px;opacity:.9;margin-bottom:20px;}
+.cta-btn{display:inline-block;background:white;color:var(--red);font-weight:700;font-size:14px;padding:12px 28px;border-radius:10px;text-decoration:none;transition:all .15s;}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2);}
+
+footer{text-align:center;padding:24px 16px;font-size:11px;color:#aaa;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="logo-text">🚗 jpdrivingtest.com</div>
+    <div class="logo-sub">日本驾照笔试中文练习</div>
+  </div>
+  <nav>
+    <a href="index.html">练习题库</a>
+    <a href="guide.html" class="active">备考指南</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">✦ 2025年最新版 ✦</div>
+  <h1>外免切替 &amp; 本免许<br><span>中文备考完全指南</span></h1>
+  <p>从申请材料到考试技巧，帮助持有中国驾照的在日外国人顺利换取日本驾照</p>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list">
+      <li><a href="#intro"><span class="toc-num">01</span>外免切替是什么？</a></li>
+      <li><a href="#new2025"><span class="toc-num">02</span>2025年10月新制度变化（重要）</a></li>
+      <li><a href="#flow"><span class="toc-num">03</span>申请流程 · 分步说明</a></li>
+      <li><a href="#materials"><span class="toc-num">04</span>申请材料清单</a></li>
+      <li><a href="#exam"><span class="toc-num">05</span>知识确认考试须知</a></li>
+      <li><a href="#skill"><span class="toc-num">06</span>技能确认考试须知</a></li>
+      <li><a href="#honmen"><span class="toc-num">07</span>本免许（直接考试）说明</a></li>
+      <li><a href="#faq"><span class="toc-num">08</span>常见问题</a></li>
+    </ul>
+  </div>
+
+  <!-- 01 介绍 -->
+  <div class="section" id="intro">
+    <div class="section-header">
+      <span class="section-icon">🌏</span>
+      <span class="section-title">外免切替是什么？</span>
+    </div>
+    <p style="margin-bottom:14px;color:var(--ink-soft);">外免切替（外免切替・外国免許切替）是指持有外国驾照的人，通过审查和考试将其换取日本驾照的制度。与重新从零考驾照相比，部分考试科目可以免除，流程更简便。</p>
+
+    <div class="highlight blue">
+      <strong>📌 中国驾照持有者须知</strong>
+      中国不在日本的「考试免除国」名单中，因此持中国驾照换日本驾照需要通过知识确认考试（笔试）和技能确认考试（路试）两项考试。
+    </div>
+
+    <table class="compare-table">
+      <tr><th>项目</th><th>外免切替</th><th>本免许（从零考）</th></tr>
+      <tr><td>适合人群</td><td>已持有外国驾照者</td><td>无驾照或外免切替未通过者</td></tr>
+      <tr><td>笔试题数</td><td class="new">50题（2025年10月起）</td><td>50题</td></tr>
+      <tr><td>笔试合格线</td><td class="new">45/50（90%）</td><td>45/50（90%）</td></tr>
+      <tr><td>考试时间</td><td>30分钟</td><td>50分钟</td></tr>
+      <tr><td>仮免許考試</td><td>不需要</td><td>需要</td></tr>
+      <tr><td>驾校要求</td><td>不需要</td><td>通常需要</td></tr>
+      <tr><td>费用（参考）</td><td>约3,000～5,000日元</td><td>约30～40万日元（驾校费用）</td></tr>
+    </table>
+  </div>
+
+  <!-- 02 新制度 -->
+  <div class="section" id="new2025">
+    <div class="section-header">
+      <span class="section-icon">🆕</span>
+      <span class="section-title">2025年10月新制度变化</span>
+      <span class="section-badge">重要</span>
+    </div>
+
+    <div class="highlight red">
+      <strong>⚠️ 2025年10月1日起实施，难度大幅提升</strong>
+      旧制度合格率约90%，新制度合格率已降至约30~40%。请务必认真备考，切勿轻视。
+    </div>
+
+    <table class="compare-table">
+      <tr><th>变化项目</th><th>旧制度（2025年9月以前）</th><th>新制度（2025年10月起）</th></tr>
+      <tr><td>出题数量</td><td>10题</td><td class="new">50题（增加5倍）</td></tr>
+      <tr><td>合格线</td><td>7/10（70%）</td><td class="new">45/50（90%）</td></tr>
+      <tr><td>允许错误数</td><td>3题</td><td class="new">5题</td></tr>
+      <tr><td>出题范围</td><td>基本交通规则</td><td class="new">与本免许相同（22个领域）</td></tr>
+      <tr><td>题型</td><td>插图+○×判断</td><td class="new">纯文字○×判断（标志题除外）</td></tr>
+      <tr><td>考试时间</td><td>未限制</td><td class="new">30分钟</td></tr>
+      <tr><td>合格率（参考）</td><td>约90%</td><td class="new">约30～40%</td></tr>
+    </table>
+
+    <div class="highlight orange">
+      <strong>💡 备考重点提示</strong>
+      新制度出题范围覆盖22个知识领域，与本免许学科考试完全相同。题目改为纯文字描述，对中文母语考生来说「读懂题目」本身更容易，但需要记忆的知识量大幅增加。建议至少练习200道以上题目再参加考试。
+    </div>
+  </div>
+
+  <!-- 03 申请流程 -->
+  <div class="section" id="flow">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">申请流程 · 分步说明</span>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>确认资格条件</h3>
+          <p>取得外国驾照后，须在该国累计居住满<strong>3个月以上</strong>。通过护照出入境章来证明。此外，须持有外国驾照的有效原件（在有效期内或在期满后一定时间内）。</p>
+          <span class="step-tag red">⚠ 关键条件：居住满3个月</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>准备申请材料</h3>
+          <p>准备外国驾照、护照、在留卡、住民票、日本驾照（如有）等材料，以及外国驾照的日文译文（须由指定机关翻译，JAF等）。详见下方材料清单。</p>
+          <span class="step-tag blue">📄 见材料清单</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>预约许可中心（运転免許センター）</h3>
+          <p>大部分都道府县需要提前预约资料审查。请直接联系或查询所在都道府县的运転免許センター官网，确认预约方法和受理时间。</p>
+          <span class="step-tag blue">🏢 提前预约，避免白跑</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>资料审查（適性審査）</h3>
+          <p>前往许可中心提交材料，进行视力等身体适性检查。工作人员会确认驾照真伪和居住期间证明。审查通过后，才能参加知识确认和技能确认考试。</p>
+          <span class="step-tag green">✓ 通过后才能参加考试</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num blue">5</div>
+        <div class="step-content">
+          <h3>知识确认考试（笔试）</h3>
+          <p>50道○×判断题，30分钟，合格线45题（90%）。可选择中文考卷。这是新制度后难度最高的环节，请充分练习后再参加。</p>
+          <span class="step-tag red">🆕 2025年起大幅提升难度</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num blue">6</div>
+        <div class="step-content">
+          <h3>技能确认考试（路试）</h3>
+          <p>在许可中心的考试路线上进行实际驾驶考试。考核起步、停止、直线行驶、路口通行、停车等基本操作。日本的左侧通行是最需要适应的重点。</p>
+          <span class="step-tag blue">🚗 左侧通行为重点</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <h3>取得日本驾照</h3>
+          <p>两项考试均通过后，当日或指定日期即可取得日本驾照。通常为普通第一种免许（普通免許）。新取得者会发放绿色驾照，有效期2～3年。</p>
+          <span class="step-tag green">🎉 恭喜取得日本驾照</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 材料清单 -->
+  <div class="section" id="materials">
+    <div class="section-header">
+      <span class="section-icon">📄</span>
+      <span class="section-title">申请材料清单</span>
+    </div>
+
+    <div class="highlight blue">
+      <strong>📌 注意</strong>
+      各都道府县要求可能略有不同。建议事先致电或查询所在地许可中心的官方网站确认最新要求。
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">✅ 必备材料</div>
+      <ul class="checklist">
+        <li><strong>外国驾照原件</strong>（有效期内，或过期后一定期间内）</li>
+        <li><strong>外国驾照的日文译文</strong>（须由JAF、大使馆等指定机关翻译，非普通翻译公司）</li>
+        <li><strong>护照</strong>（含出入境记录，用于证明在颁证国居住3个月以上）</li>
+        <li><strong>在留卡（在留カード）</strong>或特别永住者証明書</li>
+        <li><strong>住民票</strong>（近3个月以内，记载住所地）</li>
+        <li><strong>证件照</strong>（3cm×2.4cm，近6个月内，无背景）</li>
+        <li><strong>手续费</strong>（各都道府县不同，约2,000～4,000日元）</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">⚠️ 中国驾照持有者特别注意</div>
+      <ul class="checklist">
+        <li class="warn">中国驾照须由<strong>中国大使馆/领事馆或JAF（日本汽车联盟）</strong>翻译，普通翻译公司的译文不被接受</li>
+        <li class="warn">护照须显示清楚的<strong>出入境印章</strong>，证明取得驾照后在中国居住满3个月。如护照无章（电子通关），须准备补充证明材料</li>
+        <li class="warn">如中国驾照已到期，需事先确认是否仍可受理</li>
+        <li class="warn">无国际驾照也可申请外免切替，不需要国际驾照</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">📍 日文译文取得方式（中国驾照）</div>
+      <ul class="checklist">
+        <li><strong>JAF（日本自動車連盟）</strong>：最常用，费用约3,000日元，可邮寄申请</li>
+        <li><strong>中国驻日大使馆/领事馆</strong>：提供公证翻译，费用和等待时间各异</li>
+        <li class="cross">普通翻译公司、个人翻译：<strong>不被接受</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 05 知识确认考试 -->
+  <div class="section" id="exam">
+    <div class="section-header">
+      <span class="section-icon">📝</span>
+      <span class="section-title">知识确认考试须知</span>
+    </div>
+
+    <table class="compare-table">
+      <tr><th>项目</th><th>内容</th></tr>
+      <tr><td>题目数量</td><td class="new">50题（2025年10月起）</td></tr>
+      <tr><td>题型</td><td>○×判断题（正确选○，错误选✕）</td></tr>
+      <tr><td>合格线</td><td class="new">45题以上正确（允许错5题，正确率90%）</td></tr>
+      <tr><td>考试时间</td><td>30分钟</td></tr>
+      <tr><td>语言</td><td>可选中文（各地支持语言不同，建议提前确认）</td></tr>
+      <tr><td>出题范围</td><td>与本免许学科考试相同的22个知识领域</td></tr>
+      <tr><td>插图题</td><td>已取消（仅交通标志题保留图示）</td></tr>
+      <tr><td>不合格时</td><td>可重新申请，无次数限制</td></tr>
+    </table>
+
+    <div class="highlight green">
+      <strong>✅ 高频考点（重点记忆）</strong>
+      ① 速度规定（一般道路60km/h，高速100km/h，原付30km/h）<br>
+      ② 停车禁止区域（路口前后5m、横道前後5m、消防栓5m等）<br>
+      ③ 禁止超车场所（路口30m、坡顶30m、弯道30m、道口30m）<br>
+      ④ 优先通行规则（直行＞转弯、急救车优先、左让右等）<br>
+      ⑤ 信号灯含义（黄灯＝原则停车、箭头灯规则）<br>
+      ⑥ 酒驾判定标准（呼气0.15mg/L以上）<br>
+      ⑦ 铁路道口规则（必须完全停车确认）<br>
+      ⑧ 外免切替新制度内容（50题、30分钟、90%合格）
+    </div>
+
+    <div class="highlight orange">
+      <strong>💡 中国驾照持有者的备考重点</strong>
+      与中国交通规则<strong>最容易混淆</strong>的差异：<br>
+      · 日本靠<strong>左</strong>行驶（中国靠右）<br>
+      · 红灯时左右转均须<strong>完全停车</strong>（中国部分地区允许右转）<br>
+      · 超车从<strong>右侧</strong>进行（中国从左侧）<br>
+      · 无信号路口：<strong>左侧来车让右侧来车</strong>先行<br>
+      · 铁路道口即使有绿灯也<strong>必须停车确认</strong>
+    </div>
+  </div>
+
+  <!-- 06 技能确认 -->
+  <div class="section" id="skill">
+    <div class="section-header">
+      <span class="section-icon">🚗</span>
+      <span class="section-title">技能确认考试须知</span>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">考试形式</div>
+      <p>在许可中心的专用考试路线上，由考官陪同进行实际驾驶考试。考核时间约10～15分钟，主要评估基本驾驶操作和交通规则遵守情况。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">✅ 主要考核项目</div>
+      <ul class="checklist">
+        <li>起步前的安全确认（后视镜、目视确认）</li>
+        <li>起步时打方向灯并确认安全</li>
+        <li>直线行驶（靠左行驶，保持车道）</li>
+        <li>交叉路口通行（左右确认、行人让行）</li>
+        <li>右转、左转操作（正确绕行路口中心点）</li>
+        <li>停车（靠左、距路缘30cm以内）</li>
+        <li>速度控制（不超速、不过慢）</li>
+      </ul>
+    </div>
+
+    <div class="highlight red">
+      <strong>⚠️ 最常见失败原因</strong>
+      ① 靠右行驶（日本靠左，这是最常见的失败原因）<br>
+      ② 路口安全确认不足（须目视左右，不只看后视镜）<br>
+      ③ 起步/停车时未打方向灯<br>
+      ④ 铁路道口未完全停车<br>
+      ⑤ 行人横道未停车让行
+    </div>
+
+    <div class="highlight blue">
+      <strong>💡 备考建议</strong>
+      如果在日本从未驾驶过，强烈建议考前找驾校进行1～2次练习（付费教习）。特别是要熟悉日本左侧通行的感觉，以及方向灯位置（日本方向灯杆通常在右侧，与中国相反）。
+    </div>
+  </div>
+
+  <!-- 07 本免许 -->
+  <div class="section" id="honmen">
+    <div class="section-header">
+      <span class="section-icon">🏫</span>
+      <span class="section-title">本免许（直接考试）说明</span>
+    </div>
+
+    <p style="margin-bottom:14px;color:var(--ink-soft);">如果外免切替不成功（如不满足3个月居住条件），或希望直接参加本免许考试，也可以走「本免许」路线。</p>
+
+    <table class="compare-table">
+      <tr><th>项目</th><th>内容</th></tr>
+      <tr><td>仮免許考試</td><td>学科+技能（须在驾校练习后）</td></tr>
+      <tr><td>本免許学科考試</td><td>50题，50分钟，合格线45/50（90%）</td></tr>
+      <tr><td>本免許技能考試</td><td>路试（驾校卒业后可免除）</td></tr>
+      <tr><td>费用（参考）</td><td>约30万日元以上（含驾校费用）</td></tr>
+      <tr><td>所需时间</td><td>约3～6个月（驾校学习期间）</td></tr>
+    </table>
+
+    <div class="highlight blue">
+      <strong>📌 本免许学科考试与外免切替笔试的区别</strong>
+      本免许学科考试有<strong>50分钟</strong>，外免切替知识确认考试只有<strong>30分钟</strong>。出题范围和合格线完全相同。我们的本免许题库可以同时用于两者的备考。
+    </div>
+  </div>
+
+  <!-- 08 FAQ -->
+  <div class="section" id="faq">
+    <div class="section-header">
+      <span class="section-icon">❓</span>
+      <span class="section-title">常见问题</span>
+    </div>
+
+    <div class="faq" onclick="this.classList.toggle('open')">
+      <div class="faq-q">家族滞在签证也可以申请外免切替吗？</div>
+      <div class="faq-a">可以。外免切替对签证种类没有限制，家族滞在、留学、工作签证等均可申请。只要持有合法在留资格和符合条件的外国驾照即可。</div>
+    </div>
+
+    <div class="faq" onclick="this.classList.toggle('open')">
+      <div class="faq-q">知识确认考试不合格可以再考吗？</div>
+      <div class="faq-a">可以。知识确认考试不合格后可以重新申请参加，没有次数限制。但每次需要重新预约和缴费。建议充分练习后再参加，避免多次往返许可中心。</div>
+    </div>
+
+    <div class="faq" onclick="this.classList.toggle('open')">
+      <div class="faq-q">中文驾照翻译必须找JAF吗？</div>
+      <div class="faq-a">不是只有JAF，中国驻日大使馆或领事馆提供的公证翻译也被接受。但普通翻译公司的译文不被接受。JAF的服务可以邮寄申请，比较方便，费用约3,000日元。</div>
+    </div>
+
+    <div class="faq" onclick="this.classList.toggle('open')">
+      <div class="faq-q">护照没有出入境章，怎么证明居住3个月？</div>
+      <div class="faq-a">这是近年来电子通关普及后的常见问题。可以准备以下补充材料：中国境内的住民登记证明、工作单位证明、学校在籍证明等。具体接受哪些材料因都道府县而异，建议事先咨询许可中心。</div>
+    </div>
+
+    <div class="faq" onclick="this.classList.toggle('open')">
+      <div class="faq-q">外免切替后的日本驾照有什么限制？</div>
+      <div class="faq-a">外免切替取得的日本驾照与普通方式取得的驾照基本相同，无特别限制。首次取得者会发放绿色驾照（初心者期间），有效期约2～3年，更新时需参加初回更新讲习。期间须在车辆前后贴初学者标志（若符合要求）。</div>
+    </div>
+
+    <div class="faq" onclick="this.classList.toggle('open')">
+      <div class="faq-q">考试当天可以带什么进考场？</div>
+      <div class="faq-a">通常只允许带必要的身份证件。不可携带参考书或手机进入考场。中文考卷需要提前告知工作人员。考场内通常不允许拍照。</div>
+    </div>
+
+    <div class="faq" onclick="this.classList.toggle('open')">
+      <div class="faq-q">东京（府中）的考试流程是怎样的？</div>
+      <div class="faq-a">东京的外免切替在府中运転免許試験場进行。需要提前预约资料审查，审查通过后才能参加考试。考试日程和预约方法请参考警视庁官网，或直接致电确认（对应多种语言）。</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>准备好了吗？去练习题库吧！</h2>
+    <p>150道本免许题 + 100道外免切替专题 · 错题本自动收集 · 免费无需注册</p>
+    <a href="index.html" class="cta-btn">开始练习 →</a>
+  </div>
+
+</div>
+
+<footer>© 2025 jpdrivingtest.com · 信息仅供参考，以各都道府县许可中心最新公告为准</footer>
+
+</body>
+</html>
