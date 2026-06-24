@@ -1348,7 +1348,7 @@ function goSub(type){
   examType=type;
   document.getElementById('subIcon').textContent=type==='g'?'🌏':'🏫';
   document.getElementById('subTitle').textContent=type==='g'?'外国驾照换日本驾照':'本免许学科考试';
-  document.getElementById('subDesc').textContent=type==='g'?'知識確認考試 · 50题 · 30分钟 · 合格45/50（90%）':'学科試験 · 90题+5道危险预知题 · 50分钟 · 满分100分 · 合格90分';
+  document.getElementById('subDesc').textContent=type==='g'?'知識確認考試 · 50题 · 30分钟 · 合格45/50（90%）':'学科試験 · 95题（90判断+5危险预知）· 50分钟 · 满分100分 · 合格90分';
   document.getElementById('reviewRestartBtn').className='btn-main '+(type==='g'?'g':'h');
   updateWrongBadge();
   showScreen('sub');
@@ -1377,9 +1377,18 @@ function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Mat
 
 function startQuiz(mode){
   quizMode=mode;
-  const base=examType==='g'?GAIMEN_BANK:HONMEN_BANK;
-  const combined=[...base,...SIGN_BANK,...EXTRA_BANK,...KIKEN_BANK.map(k=>({...k,q:k.scene}))];
-  questions=shuffle(combined).slice(0,50);
+  const judgeBase=[...(examType==='g'?GAIMEN_BANK:HONMEN_BANK),...SIGN_BANK,...EXTRA_BANK];
+
+  if(examType==='h'){
+    // 本免许：90道判断题 + 随机抽5道危险预知题
+    const judgeQs=shuffle(judgeBase).slice(0,90);
+    const kikenQs=shuffle([...KIKEN_BANK]).slice(0,5);
+    questions=[...judgeQs,...kikenQs];
+  } else {
+    // 外免切替：50道判断题（不含危险预知）
+    questions=shuffle(judgeBase).slice(0,50);
+  }
+
   currentIdx=0; answers=[];
   timeLeft=examType==='g'?1800:3000;
   startTime=Date.now();
@@ -1391,6 +1400,7 @@ function startQuiz(mode){
   document.getElementById('progFill').className='prog-fill '+cls;
   document.querySelectorAll('.q-num').forEach(el=>el.className='q-num '+cls);
 
+  const total=questions.length;
   const timer=document.getElementById('timerDisplay');
   if(mode==='mock'){
     timer.style.display='inline-block';
@@ -1409,8 +1419,9 @@ let kikenSubIdx = 0; // 危险预知题当前小问索引
 
 function renderQ(){
   const q=questions[currentIdx];
-  document.getElementById('progText').textContent=`第 ${currentIdx+1} 题 / 共 50 题`;
-  document.getElementById('progFill').style.width=`${(currentIdx/50)*100}%`;
+  const total=questions.length;
+  document.getElementById('progText').textContent=`第 ${currentIdx+1} 题 / 共 ${total} 题`;
+  document.getElementById('progFill').style.width=`${(currentIdx/total)*100}%`;
   document.getElementById('expl').className='expl';
   document.getElementById('expl').innerHTML='';
   document.getElementById('nextBtn').className='next-btn';
@@ -1522,7 +1533,7 @@ function nextQuestion(){
     renderKikenSub(q);
   } else {
     currentIdx++;
-    if(currentIdx>=50)finishQuiz();
+    if(currentIdx>=questions.length)finishQuiz();
     else renderQ();
   }
 }
@@ -1530,45 +1541,78 @@ function nextQuestion(){
 function finishQuiz(){
   clearInterval(timerInterval);
   const elapsed=Math.floor((Date.now()-startTime)/1000);
-  const correct=answers.filter(a=>a.correct).length;
-  const wrong=50-correct;
-  const pass=correct>=45;
   const mins=Math.floor(elapsed/60),secs=elapsed%60;
 
-  // 结果
-  document.getElementById('scoreCircle').className='score-circle '+(pass?'pass':'fail');
-  document.getElementById('scoreNum').textContent=correct;
-  document.getElementById('verdict').textContent=pass?'🎉 合格！':'😔 未合格';
-  document.getElementById('verdictSub').textContent=pass
-    ?`答对${correct}道，只错了${wrong}道，已超过合格线！`
-    :`答对${correct}道，错了${wrong}道，合格线45道，继续加油！`;
-  document.getElementById('metaCorrect').textContent=correct;
-  document.getElementById('metaWrong').textContent=wrong;
-  document.getElementById('metaTime').textContent=`${mins}分${secs}秒`;
+  let score, total, pass, correct, wrong;
 
-  // 错题复盘列表
+  if(examType==='h'){
+    // 本免许：判断题每题1分，危险预知题全对2分否则0分，满分100
+    score=0;
+    correct=0; wrong=0;
+    answers.forEach(a=>{
+      if(a.q.type==='kiken'){
+        // 危险预知：三小问全对得2分
+        const allRight=a.wrongCount===0;
+        if(allRight){ score+=2; correct++; } else { wrong++; }
+      } else {
+        if(a.correct){ score+=1; correct++; } else { wrong++; }
+      }
+    });
+    total=100;
+    pass=score>=90;
+    document.getElementById('scoreNum').textContent=score;
+    document.getElementById('scoreCircle').className='score-circle '+(pass?'pass':'fail');
+    document.getElementById('verdict').textContent=pass?'🎉 合格！':'😔 未合格';
+    document.getElementById('verdictSub').textContent=pass
+      ?`得分${score}分，通过合格线（90分）！`
+      :`得分${score}分，合格线90分，差${90-score}分，继续加油！`;
+    document.getElementById('metaCorrect').textContent=score+'分';
+    document.getElementById('metaWrong').textContent=(total-score)+'分';
+  } else {
+    // 外免切替：50题，答对数
+    correct=answers.filter(a=>a.correct).length;
+    wrong=50-correct;
+    pass=correct>=45;
+    document.getElementById('scoreNum').textContent=correct;
+    document.getElementById('scoreCircle').className='score-circle '+(pass?'pass':'fail');
+    document.getElementById('verdict').textContent=pass?'🎉 合格！':'😔 未合格';
+    document.getElementById('verdictSub').textContent=pass
+      ?`答对${correct}道，只错了${wrong}道，已超过合格线！`
+      :`答对${correct}道，错了${wrong}道，合格线45道，继续加油！`;
+    document.getElementById('metaCorrect').textContent=correct+'题';
+    document.getElementById('metaWrong').textContent=wrong+'题';
+  }
+
+  document.getElementById('metaTime').textContent=`${mins}分${secs}秒`;
+  document.getElementById('scoreDenom').textContent=examType==='h'?'/ 100':'/ 50';
+
+  // 错题复盘
   const wrongAnswers=answers.filter(a=>!a.correct);
   const listTitle=document.getElementById('reviewListTitle');
   const list=document.getElementById('reviewList');
-
   if(wrongAnswers.length===0){
     listTitle.textContent='✅ 全部答对，太厉害了！';
     list.innerHTML='';
   }else{
     listTitle.textContent=`错题复盘（共 ${wrongAnswers.length} 道）`;
-    list.innerHTML=wrongAnswers.map((a,i)=>`
-      <div class="review-item wrong-item">
-        <div class="ri-header">
-          <span class="ri-num">第 ${answers.indexOf(a)+1} 题</span>
-          <span class="ri-tag w">✕ 答错</span>
-        </div>
-        <div class="ri-q">${a.q.q}</div>
+    list.innerHTML=wrongAnswers.map((a,i)=>{
+      if(a.q.type==='kiken'){
+        return `<div class="review-item wrong-item">
+          <div class="ri-header"><span class="ri-num">第${answers.indexOf(a)+1}题</span><span class="ri-tag w">✕ 危险预知</span></div>
+          <div class="ri-q">🚗 ${a.q.scene}</div>
+          <div class="ri-expl">${a.q.explanation}</div>
+        </div>`;
+      }
+      return `<div class="review-item wrong-item">
+        <div class="ri-header"><span class="ri-num">第 ${answers.indexOf(a)+1} 题</span><span class="ri-tag w">✕ 答错</span></div>
+        <div class="ri-q">${a.q.q||a.q.scene}</div>
         <div class="ri-ans">
           <span>正确答案：<span class="ri-correct">${a.q.a?'○ 正确':'✕ 错误'}</span></span>
           <span>你的答案：<span class="ri-wrong-ans">${a.userAnswer?'○ 正确':'✕ 错误'}</span></span>
         </div>
-        <div class="ri-expl">${a.q.e}</div>
-      </div>`).join('');
+        <div class="ri-expl">${a.q.e||''}</div>
+      </div>`;
+    }).join('');
   }
 
   updateWrongBadge();
