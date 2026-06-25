@@ -85,7 +85,7 @@ nav a.cur{color:white;font-weight:700;}
 .swr-count{font-size:15px;font-weight:700;color:var(--orange);}
 
 /* ── QUIZ ── */
-#quiz{max-width:680px;margin:0 auto;padding:16px 16px;}
+#quiz{max-width:680px;margin:0 auto;padding:16px 16px 80px;}
 .quiz-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap;}
 .qbadge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;color:white;}
 .qbadge.g{background:var(--blue);}
@@ -795,73 +795,73 @@ const GAIMEN_BANK=[
 // ===== 标志图示题库 (45题) =====
 // ===== TSV图示题库 =====
 const IMG_SIGN_BANK = [
-{id:2001,q:"图示路侧标示表示该处禁止长时停车及临时停车。",img:"images/img-x-03044-x-03-x-A-x-駐停車禁止路側帯.gif",a:true,e:"正确。黄色斜线路侧带表示禁止一切停车行为，包括长时停车和临时停车。"},
-{id:2002,q:"图示标志表示该道路为行人专用，车辆不得通行（经许可的车辆除外）。",img:"images/img-x-original-x-01-x-A-x-1規制-32歩行者専用.jpg",a:false,e:"错误。行人专用标志表示禁止车辆通行，持有警察署长许可的车辆（如沿路有车库）方可通行，并非仅减速即可。"},
-{id:2003,q:"图示标志表示禁止所有车辆通行，但行人可以通过。",img:"images/img-x-original-x-01-x-A-x-1規制-11車両通行止め.jpg",a:true,e:"正确。「車両通行止め」仅禁止车辆通行，行人不受限制。"},
-{id:2004,q:"图示标志表示除摩托车外的机动车禁止通行。",img:"images/img-x-original-x-01-x-A-x-1規制-04二輪自動車以外.jpg",a:false,e:"错误。该标志表示除二轮摩托车外的所有车辆均不得通行，并非仅限普通乘用车。"},
-{id:2005,q:"图示路面标示表示前方为优先道路，进入时须让优先道路上的车辆先行。",img:"images/img-x-original-x-03-x-B-x-8指示-15前方優先道路.jpg",a:false,e:"错误。该标示表示前方为优先道路（Right-of-way），进入该道路须让行，不仅仅是提示有交叉路口。"},
-{id:2006,q:"图示标志表示该路段最高行驶速度为50km/h，所有车辆不得超过此速度。",img:"images/img-x-original-x-01-x-A-x-1規制-26最高速度.jpg",a:true,e:"正确。圆形「最高速度」标志规定该路段的最高限速，所有车辆须遵守。"},
-{id:2007,q:"图示标志表示该车道为特定车辆专用通行带，其他车辆不得进入。",img:"images/img-x-original-x-01-x-A-x-1規制-37専用通行帯.jpg",a:true,e:"正确。专用通行带标志指定该车道仅供特定车辆（如公共汽车）使用，其他车辆不得进入。"},
-{id:2008,q:"图示标志表示禁止所有车辆通行，但行人可以通过。",img:"images/img-x-original-x-01-x-A-x-1規制-02車両通行止め.jpg",a:true,e:"正确。「車両通行止め」仅禁止车辆通行，行人不受限制。"},
-{id:2009,q:"图示路面标示表示该区域为禁止停车区，车辆即使绿灯也不可停在此处。",img:"images/img-x-original-x-03-x-A-x-7規制標示-08停止禁止部分.jpg",a:true,e:"正确。「停止禁止部分」是路面上的黄色网格区域，禁止车辆在此停留等候。"},
-{id:2010,q:"图示标志表示禁止长时停车，但允许短暂临时停车（5分钟以内）接送乘客。",img:"images/img-x-original-x-01-x-A-x-1規制-19駐車禁止3.jpg",a:false,e:"错误。该标志表示的是禁止停车区域的起点，不是终点。"},
-{id:2011,q:"图示路面标示表示该路段禁止一切停车行为，包括长时停车和临时停车。",img:"images/img-x-original-x-03-x-A-x-7規制標示-04駐停車禁止.jpg",a:true,e:"正确。黄色双斜线路面标示「駐停車禁止」表示禁止一切停车。"},
-{id:2012,q:"图示标志表示禁止车辆驶入，常设于单行道逆向入口。",img:"images/img-x-original-x-01-x-A-x-1規制-03車両進入禁止.jpg",a:false,e:"错误。该标志是「車両進入禁止」（禁止车辆驶入），不是禁止所有通行。"},
-{id:2013,q:"图示标志表示禁止超车（禁止越过中心线超车）。",img:"images/img-x-original-x-01-x-A-x-1規制-16追越しのための右.jpg",a:false,e:"错误。该标志是「追越しのための右側部分はみ出し通行禁止」，禁止越过中心线进入对向车道超车，但在本方车道内超车是允许的。"},
-{id:2014,q:"图示标示板表示可以左转，车辆可以在任何信号状态下左转（须让行行人）。",img:"images/img-x-original-x-01-x-E-x-6標示板-02左折可.jpg",a:true,e:"正确。「左折可」标示板允许车辆在任何信号下左转，但须注意让行横道上的行人和自行车。"},
-{id:2015,q:"图示路面标示表示前方有行人横道或自行车横道，须提前减速准备停车。",img:"images/img-x-original-x-03-x-B-x-8指示-14横断歩道または２.jpg",a:true,e:"正确。菱形路面标示提示前方有横道，须提前减速，横道上有行人时须停车让行。"},
-{id:2016,q:"图示标志表示在该路口只能按箭头所示方向行驶，禁止其他方向。",img:"images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止7.jpg",a:false,e:"错误。该标志的限制对象和方向以标志上的箭头为准，需仔细确认标志内容。"},
-{id:2017,q:"图示路面标示表示该区域为禁止驶入区域（立入禁止），车辆不得进入。",img:"images/img-x-original-x-03-x-A-x-7規制標示-07立入り禁止部分.jpg",a:true,e:"正确。「立入り禁止部分」与停止禁止部分类似，但禁止车辆驶入该区域。"},
-{id:2018,q:"图示标志表示该路段完全禁止超车，即使不越过中心线也不得超车。",img:"images/img-x-original-x-01-x-A-x-1規制-17追越し禁止.jpg",a:true,e:"正确。「追越し禁止」标志禁止一切超车行为，不同于仅禁止越过中心线超车的标志。"},
-{id:2019,q:"图示警告标志提示附近有学校、幼儿园或托儿所，须特别减速注意儿童。",img:"images/img-x-original-x-01-x-C-x-3警戒-12学校・幼・保.jpg",a:true,e:"正确。该菱形警告标志提示学校、幼儿园等附近，儿童可能随时冲出，须大幅减速。"},
-{id:2020,q:"图示标志表示该路段禁止掉头（U形转弯）。",img:"images/img-x-original-x-01-x-A-x-転回禁止.gif",a:true,e:"正确。「転回禁止」标志禁止在该路段进行掉头（U形转弯）。"},
-{id:2021,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road marking shows the po）",img:"images/img-x-original-x-03-x-A-x-7規制標示-21右左折の方法1.jpg",a:true,e:"正确。Correct"},
-{id:2022,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（On the road with this road sig）",img:"images/img-x-original-x-01-x-C-x-3警戒-14すべりやすい.jpg",a:false,e:"错误。This road sign indicates “Slippery road”"},
-{id:2023,q:"图示路面标示表示该路段禁止一切停车行为，包括长时停车和临时停车。",img:"images/img-x-original-x-01-x-A-x-1規制-18駐停車禁止.jpg",a:true,e:"正确。黄色双斜线路面标示「駐停車禁止」表示禁止一切停车。"},
-{id:2024,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（On a road with this road sign,）",img:"images/img-x-original-x-01-x-A-x-1規制-08二輪の自動車.jpg",a:true,e:"正确。Correct"},
-{id:2025,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign indicates Right）",img:"images/img-x-original-x-01-x-A-x-1規制-14車両横断禁止.jpg",a:false,e:"错误。This road sign indicates “No crossing”.  You must not make a right turn to enter"},
-{id:2026,q:"图示标志表示该路段最高行驶速度为50km/h，所有车辆不得超过此速度。",img:"images/img-x-original-x-01-x-A-x-1規制-26最高速度3.jpg",a:true,e:"正确。圆形「最高速度」标志规定该路段的最高限速，所有车辆须遵守。"},
-{id:2027,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（The location with this road si）",img:"images/img-x-original-x-01-x-B-x-2指示-11安全地帯.jpg",a:false,e:"错误。This road sign indicates safety zone. It doesnt mean drivers always must slow do"},
-{id:2028,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（When you are passing a place w）",img:"images/img-x-original-x-01-x-A-x-1規制-43警笛鳴らせ.jpg",a:true,e:"正确。correct"},
-{id:2029,q:"图示标志表示在该路口只能按箭头所示方向行驶，禁止其他方向。",img:"images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止1.jpg",a:false,e:"错误。该标志的限制对象和方向以标志上的箭头为准，需仔细确认标志内容。"},
-{id:2030,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（You must drive slowly where th）",img:"images/img-x-original-x-01-x-A-x-1規制-45徐行.jpg",a:true,e:"正确。correct"},
-{id:2031,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（The sign indicates a crosswalk）",img:"images/img-x-original-x-01-x-B-x-2指示-08横断歩道2.jpg",a:true,e:"正确。Correct"},
-{id:2032,q:"图示标志表示该路段禁止掉头（U形转弯）。",img:"images/img-x-original-x-03-x-A-x-7規制標示-01転回禁止2.jpg",a:true,e:"正确。「転回禁止」标志禁止在该路段进行掉头（U形转弯）。"},
-{id:2033,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This sign means you may procee）",img:"images/img-x-original-x-01-x-A-x-1規制-47一時停止.jpg",a:false,e:"错误。Drivers must stop in any situation at the place with this sign."},
-{id:2034,q:"图示路面标示表示在该路段禁止按箭头方向变更车道。",img:"images/img-x-original-x-03-x-A-x-7規制標示-03進路変更禁止1.jpg",a:true,e:"正确。进路变更禁止标示表示在该路段禁止向标示箭头方向变更车道。"},
-{id:2035,q:"图示标志表示该车道为特定车辆专用通行带，其他车辆不得进入。",img:"images/img-x-original-x-03-x-A-x-7規制標示-17専用通行帯.jpg",a:true,e:"正确。专用通行带标志指定该车道仅供特定车辆（如公共汽车）使用，其他车辆不得进入。"},
-{id:2036,q:"图示标志表示该路段禁止掉头（U形转弯）。",img:"images/img-x-original-x-01-x-A-x-1規制-15転回禁止.jpg",a:true,e:"正确。「転回禁止」标志禁止在该路段进行掉头（U形转弯）。"},
-{id:2037,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign indicates pedes）",img:"images/img-x-original-x-01-x-A-x-横断歩道.gif",a:true,e:"正确。Correct"},
-{id:2038,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（On a street with this road sig）",img:"images/img-x-original-x-01-x-A-x-1規制-41原付右折二段階.jpg",a:true,e:"正确。Correct"},
-{id:2039,q:"图示标志表示该车道为特定车辆专用通行带，其他车辆不得进入。",img:"images/img-x-03044-x-03-x-A-x-専用通行帯.gif",a:true,e:"正确。专用通行带标志指定该车道仅供特定车辆（如公共汽车）使用，其他车辆不得进入。"},
-{id:2040,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign indicates ”Road）",img:"images/img-x-original-x-01-x-C-x-3警戒-18車線数減少.jpg",a:false,e:"错误。This road sign indicates ”Fewer lanes”."},
-{id:2041,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign indicates ”Clos）",img:"images/img-x-original-x-01-x-A-x-1規制-01通行止め.jpg",a:false,e:"错误。This road sign indicates ”Road closed”. Not only motor vehicles but also mopeds,"},
-{id:2042,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign indicates ”Soun）",img:"images/img-x-original-x-01-x-C-x-3警戒-26その他の危険.jpg",a:false,e:"错误。This road sign indicates ”Other dangers”."},
-{id:2043,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（In section of a roadway where ）",img:"images/img-x-original-x-01-x-A-x-1規制-28最低速度.jpg",a:false,e:"错误。This road sign is ”Minimum speed limit”. In this section, you must not drive at "},
-{id:2044,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign indicates ”Safe）",img:"images/img-x-original-x-01-x-A-x-優先道路.gif",a:false,e:"错误。This road sign indicates ”Right-of-way”."},
-{id:2045,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（Riding with a passenger on all）",img:"images/img-x-original-x-01-x-A-x-1規制-12大型自動二輪車.jpg",a:false,e:"错误。This road sign indicates riding with a passenger on all large/regular motorcycle"},
-{id:2046,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road marking indicates ”N）",img:"images/img-x-03044-x-03-x-A-x-普通二輪車の交差点進入禁止.gif",a:true,e:"正确。Correct"},
-{id:2047,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign indicates ”Stre）",img:"images/img-x-original-x-01-x-C-x-3警戒-11踏切2.jpg",a:false,e:"错误。This road sign indicates ”Railway crossing”."},
-{id:2048,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（U-turn is not allowed in locat）",img:"images/img-x-original-x-03-x-A-x-7規制標示-27終わり1.jpg",a:false,e:"错误。This road marking indicates U-turn prohibited area has finishied. U-turn is allo"},
-{id:2049,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This sign means, the road is c）",img:"images/img-x-original-x-01-x-A-x-1規制-29自動車専用.jpg",a:false,e:"错误。False"},
-{id:2050,q:"图示标志表示禁止长时停车，但允许短暂临时停车（5分钟以内）接送乘客。",img:"images/img-x-original-x-01-x-A-x-1規制-19駐車禁止.jpg",a:true,e:"正确。「駐車禁止」（一条斜线）仅禁止长时停车，临时停车是允许的。"},
-{id:2051,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign means that the ）",img:"images/img-x-original-x-01-x-C-x-3警戒-19幅員減少.jpg",a:true,e:"正确。correct"},
-{id:2052,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This sign controls a traffic l）",img:"images/img-x-original-x-01-x-A-x-1規制-40進行方向別通行区分1.jpg",a:true,e:"正确。correct"},
-{id:2053,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road sign indicates a mic）",img:"images/img-x-original-x-01-x-A-x-1規制-07大型乗用自動車.jpg",a:false,e:"错误。This road sign indicates a microbus may not enter also a passenger vehicle for m"},
-{id:2054,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road marking indicates th）",img:"images/img-x-original-x-03-x-B-x-8指示-03自転車横断帯.jpg",a:false,e:"错误。This road marking indicates that this is the bicycle crossing zone."},
-{id:2055,q:"图示标志表示在该路口只能按箭头所示方向行驶，禁止其他方向。",img:"images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止2.jpg",a:false,e:"错误。该标志的限制对象和方向以标志上的箭头为准，需仔细确认标志内容。"},
-{id:2056,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（A road with this sign a moped ）",img:"images/img-x-original-x-01-x-A-x-1規制-42原付右折小回り.jpg",a:false,e:"错误。This sign means that turning right mopeds must proceed to the center of the road"},
-{id:2057,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（This road marking indicates ”b）",img:"images/img-x-original-x-03-x-A-x-7規制標示-25自転車歩道.jpg",a:false,e:"错误。This road marking indicates ”Bicycle lane”."},
-{id:2058,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（While driving at 5km/h to make）",img:"images/1-91.gif",a:false,e:"错误。You must not follow the car in front because you can not see the other side of t"},
-{id:2059,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（A driver is going to leave the）",img:"images/1-92.gif",a:true,e:"正确。Correct"},
-{id:2060,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（A driver is driving at 30km/h ）",img:"images/1-94.gif",a:true,e:"正确。Correct"},
-{id:2061,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（A driver is driving on a road ）",img:"images/1-93.gif",a:true,e:"正确。Correct"},
-{id:2062,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（A driver is going to turn righ）",img:"images/1-95.gif",a:false,e:"错误。You must not turn right without checking safety. After the truck has gone, you m"},
-{id:2063,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（A driver is driving at 40 km/h）",img:"images/2-91.gif",a:false,e:"错误。Children may enter the roadway suddenly. Reduce speed and be careful of the move"},
-{id:2064,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（A driver is driving at 5 km/hr）",img:"images/2-92.gif",a:false,e:"错误。Even if children are on the side walk, you should think they may enter the roadw"},
-{id:2065,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（When you are approaching and t）",img:"images/cyclist-1.gif",a:false,e:"错误。You must not stop and yield a motorcycle. You should move over to the left hand "},
-{id:2066,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（When you are traveling in this）",img:"images/field-1.gif",a:true,e:"正确。Correct"},
-{id:2067,q:"图示交通标志/标示，请根据其含义判断题目的正确性。（When you reduce a speed your v）",img:"images/night-walk.gif",a:true,e:"正确。Correct"},
+{id:2001,q:'图示路侧标示表示该处禁止一切停车行为，含长时停车和临时停车。',img:'images/img-x-03044-x-03-x-A-x-駐停車禁止路側帯.gif',a:true,e:'正确。黄色斜线路侧带（駐停車禁止路側帯）表示禁止一切停车，包括长时停车和临时停车。'},
+{id:2002,q:'图示标志表示行人专用道路，车辆不得通行（仅限减速即可通行）。',img:'images/img-x-original-x-01-x-A-x-1規制-32歩行者専用.jpg',a:false,e:'错误。行人专用道路只允许持警察署长许可的车辆进入，普通车辆不得通行，仅减速不够。'},
+{id:2003,q:'图示标志表示禁止所有车辆通行，但行人可以通过。',img:'images/img-x-original-x-01-x-A-x-1規制-11車両通行止め.jpg',a:true,e:'正确。「車両通行止め」仅禁止车辆通行，行人不受限制，与通行止め不同。'},
+{id:2004,q:'图示标志表示除摩托车外的所有机动车禁止通行。',img:'images/img-x-original-x-01-x-A-x-1規制-04二輪自動車以外.jpg',a:false,e:'错误。该标志仅允许二轮摩托车通行，禁止所有其他机动车，包括普通乘用车和四轮车辆。'},
+{id:2005,q:'图示路面标示表示前方为优先道路，进入时须让优先道路上的车辆先行。',img:'images/img-x-original-x-03-x-B-x-8指示-15前方優先道路.jpg',a:false,e:'错误。该标示表示前方为优先道路，不仅仅是有交叉路口的提示。'},
+{id:2006,q:'图示标志表示该路段的最高行驶速度限制，所有车辆不得超过此速度。',img:'images/img-x-original-x-01-x-A-x-1規制-26最高速度.jpg',a:true,e:'正确。圆形「最高速度」标志规定该路段的最高限速，须严格遵守。'},
+{id:2007,q:'图示标志表示该车道为特定车辆专用通行带。',img:'images/img-x-original-x-01-x-A-x-1規制-37専用通行帯.jpg',a:true,e:'正确。专用通行带仅供特定车辆使用，其他车辆不得进入。'},
+{id:2008,q:'图示标志表示禁止所有车辆通行，但行人可以通过。',img:'images/img-x-original-x-01-x-A-x-1規制-02車両通行止め.jpg',a:true,e:'正确。「車両通行止め」仅禁止车辆通行，行人不受限制，与通行止め不同。'},
+{id:2009,q:'图示路面标示表示该区域为禁止停车区，即使绿灯也不可在此处停车等候。',img:'images/img-x-original-x-03-x-A-x-7規制標示-08停止禁止部分.jpg',a:true,e:'正确。「停止禁止部分」是路面黄色网格区域，禁止车辆在此停留。'},
+{id:2010,q:'图示标志禁止长时停车，但允许短暂临时停车（5分钟以内）接送乘客。',img:'images/img-x-original-x-01-x-A-x-1規制-19駐車禁止3.jpg',a:false,e:'错误。该标志表示禁止长时停车区域的起点，不是终点标志。'},
+{id:2011,q:'图示路面标示表示该路段禁止一切停车行为，含长时停车和临时停车。',img:'images/img-x-original-x-03-x-A-x-7規制標示-04駐停車禁止.jpg',a:true,e:'正确。黄色双斜线路面标示「駐停車禁止」表示禁止一切停车。'},
+{id:2012,q:'图示标志表示禁止一切通行（含行人和车辆）。',img:'images/img-x-original-x-01-x-A-x-1規制-03車両進入禁止.jpg',a:false,e:'错误。该标志是「車両進入禁止」，仅禁止车辆驶入，行人不受限制。'},
+{id:2013,q:'图示标志表示禁止越过中心线进入对向车道超车，但在本方车道内超车是允许的。',img:'images/img-x-original-x-01-x-A-x-1規制-16追越しのための右.jpg',a:false,e:'错误。该标志「追越しのための右側部分はみ出し通行禁止」仅禁止越过中心线超车，本方车道内超车不受限制。'},
+{id:2014,q:'图示标示板表示可以左转，车辆可在任何信号状态下左转，但须让行横道行人。',img:'images/img-x-original-x-01-x-E-x-6標示板-02左折可.jpg',a:true,e:'正确。「左折可」标示板允许在任何信号状态下左转，但须注意让行横道上的行人和自行车。'},
+{id:2015,q:'图示路面菱形标示提示前方有行人横道或自行车横道，须提前减速。',img:'images/img-x-original-x-03-x-B-x-8指示-14横断歩道または２.jpg',a:true,e:'正确。菱形路面标示提示前方有横道，横道有行人时须停车让行。'},
+{id:2016,q:'图示标志规定在该路口只能按箭头所示方向行驶，禁止其他方向。',img:'images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止7.jpg',a:false,e:'错误。该标志的限制以箭头为准，需仔细确认允许通行的方向。'},
+{id:2017,q:'图示路面标示表示禁止驶入该区域（立入禁止）。',img:'images/img-x-original-x-03-x-A-x-7規制標示-07立入り禁止部分.jpg',a:true,e:'正确。「立入り禁止部分」禁止车辆驶入该区域，须绕行。'},
+{id:2018,q:'图示标志表示该路段完全禁止超车，即使不越过中心线也不得超车。',img:'images/img-x-original-x-01-x-A-x-1規制-17追越し禁止.jpg',a:true,e:'正确。「追越し禁止」禁止一切超车行为，不同于仅禁止越过中心线的标志。'},
+{id:2019,q:'图示警告标志提示附近有学校、幼儿园或托儿所，须减速注意儿童。',img:'images/img-x-original-x-01-x-C-x-3警戒-12学校・幼・保.jpg',a:true,e:'正确。菱形警告标志提示附近有儿童设施，须大幅减速，随时准备停车。'},
+{id:2020,q:'图示标志表示该路段禁止掉头（U形转弯）。',img:'images/img-x-original-x-01-x-A-x-転回禁止.gif',a:true,e:'正确。「転回禁止」禁止在该路段进行掉头，须在允许的路段掉头。'},
+{id:2021,q:'图示标志/标示：This road marking shows the portion of the road to...',img:'images/img-x-original-x-03-x-A-x-7規制標示-21右左折の方法1.jpg',a:true,e:'正确。Correct'},
+{id:2022,q:'图示标志/标示：On the road with this road sign, the drivers need ...',img:'images/img-x-original-x-01-x-C-x-3警戒-14すべりやすい.jpg',a:false,e:'错误。This road sign indicates “Slippery road”'},
+{id:2023,q:'图示路面标示表示该路段禁止一切停车行为，含长时停车和临时停车。',img:'images/img-x-original-x-01-x-A-x-1規制-18駐停車禁止.jpg',a:true,e:'正确。黄色双斜线路面标示「駐停車禁止」表示禁止一切停车。'},
+{id:2024,q:'图示标志/标示：On a road with this road sign, two wheelers motor ...',img:'images/img-x-original-x-01-x-A-x-1規制-08二輪の自動車.jpg',a:true,e:'正确。Correct'},
+{id:2025,q:'图示标志/标示：This road sign indicates Right turn prohibited.',img:'images/img-x-original-x-01-x-A-x-1規制-14車両横断禁止.jpg',a:false,e:'错误。This road sign indicates “No crossing”.  You must not make a right turn to enter'},
+{id:2026,q:'图示标志表示该路段的最高行驶速度限制，所有车辆不得超过此速度。',img:'images/img-x-original-x-01-x-A-x-1規制-26最高速度3.jpg',a:true,e:'正确。圆形「最高速度」标志规定该路段的最高限速，须严格遵守。'},
+{id:2027,q:'图示标志/标示：The location with this road sign, drivers always m...',img:'images/img-x-original-x-01-x-B-x-2指示-11安全地帯.jpg',a:false,e:'错误。This road sign indicates safety zone. It doesnt mean drivers always must slow do'},
+{id:2028,q:'图示标志/标示：When you are passing a place where this sign is po...',img:'images/img-x-original-x-01-x-A-x-1規制-43警笛鳴らせ.jpg',a:true,e:'正确。correct'},
+{id:2029,q:'图示标志规定在该路口只能按箭头所示方向行驶，禁止其他方向。',img:'images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止1.jpg',a:true,e:'正确。须按标志箭头方向行驶，禁止其他方向通行。'},
+{id:2030,q:'图示标志/标示：You must drive slowly where there is this sign on ...',img:'images/img-x-original-x-01-x-A-x-1規制-45徐行.jpg',a:true,e:'正确。correct'},
+{id:2031,q:'图示标志/标示：The sign indicates a crosswalk.',img:'images/img-x-original-x-01-x-B-x-2指示-08横断歩道2.jpg',a:true,e:'正确。Correct'},
+{id:2032,q:'图示标志表示该路段禁止掉头（U形转弯）。',img:'images/img-x-original-x-03-x-A-x-7規制標示-01転回禁止2.jpg',a:true,e:'正确。「転回禁止」禁止在该路段进行掉头，须在允许的路段掉头。'},
+{id:2033,q:'图示标志/标示：This sign means you may proceed slowly after check...',img:'images/img-x-original-x-01-x-A-x-1規制-47一時停止.jpg',a:false,e:'错误。Drivers must stop in any situation at the place with this sign.'},
+{id:2034,q:'图示路面标示表示在该路段禁止按箭头方向变更车道。',img:'images/img-x-original-x-03-x-A-x-7規制標示-03進路変更禁止1.jpg',a:true,e:'正确。进路变更禁止标示表示禁止向标示方向变更车道。'},
+{id:2035,q:'图示标志表示该车道为特定车辆专用通行带。',img:'images/img-x-original-x-03-x-A-x-7規制標示-17専用通行帯.jpg',a:false,e:'错误。请仔细确认专用通行带的适用车辆范围。'},
+{id:2036,q:'图示标志表示该路段禁止掉头（U形转弯）。',img:'images/img-x-original-x-01-x-A-x-1規制-15転回禁止.jpg',a:true,e:'正确。「転回禁止」禁止在该路段进行掉头，须在允许的路段掉头。'},
+{id:2037,q:'图示标志/标示：This road sign indicates pedestrian crossing.',img:'images/img-x-original-x-01-x-A-x-横断歩道.gif',a:true,e:'正确。Correct'},
+{id:2038,q:'图示标志/标示：On a street with this road sign, it indicates two ...',img:'images/img-x-original-x-01-x-A-x-1規制-41原付右折二段階.jpg',a:true,e:'正确。Correct'},
+{id:2039,q:'图示标志表示该车道为特定车辆专用通行带。',img:'images/img-x-03044-x-03-x-A-x-専用通行帯.gif',a:true,e:'正确。专用通行带仅供特定车辆使用，其他车辆不得进入。'},
+{id:2040,q:'图示标志/标示：This road sign indicates ”Road narrows”.',img:'images/img-x-original-x-01-x-C-x-3警戒-18車線数減少.jpg',a:false,e:'错误。This road sign indicates ”Fewer lanes”.'},
+{id:2041,q:'图示标志/标示：This road sign indicates ”Closed to motor vehicles...',img:'images/img-x-original-x-01-x-A-x-1規制-01通行止め.jpg',a:false,e:'错误。This road sign indicates ”Road closed”. Not only motor vehicles but also mopeds,'},
+{id:2042,q:'图示标志/标示：This road sign indicates ”Sound horn”.',img:'images/img-x-original-x-01-x-C-x-3警戒-26その他の危険.jpg',a:false,e:'错误。This road sign indicates ”Other dangers”.'},
+{id:2043,q:'图示标志/标示：In section of a roadway where this road sign is po...',img:'images/img-x-original-x-01-x-A-x-1規制-28最低速度.jpg',a:false,e:'错误。This road sign is ”Minimum speed limit”. In this section, you must not drive at '},
+{id:2044,q:'图示标志/标示：This road sign indicates ”Safety zone”.',img:'images/img-x-original-x-01-x-A-x-優先道路.gif',a:false,e:'错误。This road sign indicates ”Right-of-way”.'},
+{id:2045,q:'图示标志/标示：Riding with a passenger on all large/regular motor...',img:'images/img-x-original-x-01-x-A-x-1規制-12大型自動二輪車.jpg',a:false,e:'错误。This road sign indicates riding with a passenger on all large/regular motorcycle'},
+{id:2046,q:'图示标志/标示：This road marking indicates ”No entry for bicycles...',img:'images/img-x-03044-x-03-x-A-x-普通二輪車の交差点進入禁止.gif',a:true,e:'正确。Correct'},
+{id:2047,q:'图示标志/标示：This road sign indicates ”Streetcar ahead”.',img:'images/img-x-original-x-01-x-C-x-3警戒-11踏切2.jpg',a:false,e:'错误。This road sign indicates ”Railway crossing”.'},
+{id:2048,q:'图示标志/标示：U-turn is not allowed in locations ahead of this r...',img:'images/img-x-original-x-03-x-A-x-7規制標示-27終わり1.jpg',a:false,e:'错误。This road marking indicates U-turn prohibited area has finishied. U-turn is allo'},
+{id:2049,q:'图示标志/标示：This sign means, the road is closed to regular mot...',img:'images/img-x-original-x-01-x-A-x-1規制-29自動車専用.jpg',a:false,e:'错误。False'},
+{id:2050,q:'图示标志禁止长时停车，但允许短暂临时停车（5分钟以内）接送乘客。',img:'images/img-x-original-x-01-x-A-x-1規制-19駐車禁止.jpg',a:true,e:'正确。「駐車禁止」只禁止长时停车，临时停车允许。'},
+{id:2051,q:'图示标志/标示：This road sign means that the road ahead is not as...',img:'images/img-x-original-x-01-x-C-x-3警戒-19幅員減少.jpg',a:true,e:'正确。correct'},
+{id:2052,q:'图示标志/标示：This sign controls a traffic lane for directions a...',img:'images/img-x-original-x-01-x-A-x-1規制-40進行方向別通行区分1.jpg',a:true,e:'正确。correct'},
+{id:2053,q:'图示标志/标示：This road sign indicates a microbus may enter but ...',img:'images/img-x-original-x-01-x-A-x-1規制-07大型乗用自動車.jpg',a:false,e:'错误。This road sign indicates a microbus may not enter also a passenger vehicle for m'},
+{id:2054,q:'图示标志/标示：This road marking indicates that this is the exclu...',img:'images/img-x-original-x-03-x-B-x-8指示-03自転車横断帯.jpg',a:false,e:'错误。This road marking indicates that this is the bicycle crossing zone.'},
+{id:2055,q:'图示标志规定在该路口只能按箭头所示方向行驶，禁止其他方向。',img:'images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止2.jpg',a:true,e:'正确。须按标志箭头方向行驶，禁止其他方向通行。'},
+{id:2056,q:'图示标志/标示：A road with this sign a moped making a right turn ...',img:'images/img-x-original-x-01-x-A-x-1規制-42原付右折小回り.jpg',a:false,e:'错误。This sign means that turning right mopeds must proceed to the center of the road'},
+{id:2057,q:'图示标志/标示：This road marking indicates ”bicycle crossing zone...',img:'images/img-x-original-x-03-x-A-x-7規制標示-25自転車歩道.jpg',a:false,e:'错误。This road marking indicates ”Bicycle lane”.'},
+{id:2058,q:'图示标志/标示：While driving at 5km/h to make a right turn at an ...',img:'images/1-91.gif',a:false,e:'错误。You must not follow the car in front because you can not see the other side of t'},
+{id:2059,q:'图示标志/标示：A driver is going to leave the main lane on an exp...',img:'images/1-92.gif',a:true,e:'正确。Correct'},
+{id:2060,q:'图示标志/标示：A driver is driving at 30km/h and goes straight to...',img:'images/1-94.gif',a:true,e:'正确。Correct'},
+{id:2061,q:'图示标志/标示：A driver is driving on a road under construction i...',img:'images/1-93.gif',a:true,e:'正确。Correct'},
+{id:2062,q:'图示标志/标示：A driver is going to turn right at an intersection...',img:'images/1-95.gif',a:false,e:'错误。You must not turn right without checking safety. After the truck has gone, you m'},
+{id:2063,q:'图示标志/标示：A driver is driving at 40 km/hr. What should the d...',img:'images/2-91.gif',a:false,e:'错误。Children may enter the roadway suddenly. Reduce speed and be careful of the move'},
+{id:2064,q:'图示标志/标示：A driver is driving at 5 km/hr to make a left turn...',img:'images/2-92.gif',a:false,e:'错误。Even if children are on the side walk, you should think they may enter the roadw'},
+{id:2065,q:'图示标志/标示：When you are approaching and turning left at inter...',img:'images/cyclist-1.gif',a:false,e:'错误。You must not stop and yield a motorcycle. You should move over to the left hand '},
+{id:2066,q:'图示标志/标示：When you are traveling in this situation at 40km/h...',img:'images/field-1.gif',a:true,e:'正确。Correct'},
+{id:2067,q:'图示标志/标示：When you reduce a speed your vehicle for making a ...',img:'images/night-walk.gif',a:true,e:'正确。Correct'},
 ];
 
 // ===== 危险预知题库 (15题，每题3个小问) =====
@@ -1516,6 +1516,7 @@ function submitAnswer(userAnswer){
       // 还有下一个小问
       document.getElementById('nextBtn').textContent='下一小问 →';
       document.getElementById('nextBtn').className='next-btn show';
+      setTimeout(()=>document.getElementById('nextBtn').scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
     }else{
       // 三小问完成，判断整体是否全对
       const allCorrect=q._subResults.every(r=>r.correct);
@@ -1528,6 +1529,7 @@ function submitAnswer(userAnswer){
       }
       document.getElementById('nextBtn').textContent='下一题 →';
       document.getElementById('nextBtn').className='next-btn show';
+      setTimeout(()=>document.getElementById('nextBtn').scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
     }
   } else {
     // 普通题
@@ -1551,6 +1553,8 @@ function submitAnswer(userAnswer){
     }
     document.getElementById('nextBtn').textContent='下一题 →';
     document.getElementById('nextBtn').className='next-btn show';
+    // 自动滚动到nextBtn确保手机端可见
+    setTimeout(()=>document.getElementById('nextBtn').scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
   }
 }
 
