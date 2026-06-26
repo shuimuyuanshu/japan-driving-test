@@ -4,335 +4,254 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>日本驾照笔试中文练习 | 外国驾照换日本驾照 免费题库 | jpdrivingtest.com</title>
-<meta name="description" content="免费中文日本驾照笔试练习题库，覆盖外国驾照换日本驾照（外免切替）和本免许学科考试，2025年新制度对应，250道题，无需注册，直接练习。">
+<meta name="description" content="免费中文日本驾照笔试练习题库，覆盖外国驾照换日本驾照（外免切替）和本免许学科考试，2025年新制度对应，1000+道题，无需注册，直接练习。">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
 :root{
-  --red:#D7263D;--red-light:#fff0f2;--red-mid:#b81f32;
-  --blue:#1a5fa8;--blue-light:#f0f5ff;--blue-mid:#144d8a;
-  --green:#1a7a4a;--green-light:#edfaf3;
-  --ink:#1a1a2e;--ink-soft:#4a4a6a;--border:#e0e0f0;--bg:#f7f7fb;
-  --orange:#e07b00;--orange-light:#fff8ed;
+  --red:#D7263D;--red-l:#fff0f2;--red-d:#b81f32;
+  --blue:#1a5fa8;--blue-l:#f0f5ff;--blue-d:#144d8a;
+  --green:#1a7a4a;--green-l:#edfaf3;
+  --ink:#1a1a2e;--soft:#4a4a6a;--border:#e0e0f0;--bg:#f7f7fb;
+  --orange:#e07b00;--orange-l:#fff8ed;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
-header{background:var(--ink);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
-.logo-text{color:white;font-size:14px;font-weight:700;}
+
+/* HEADER */
+header{background:var(--ink);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;}
+.logo{color:white;font-size:14px;font-weight:700;}
 .logo-sub{color:#888;font-size:10px;}
-nav{display:flex;gap:16px;}
-nav a{color:#aaa;font-size:12px;text-decoration:none;}
-nav a:hover{color:white;}
-nav a.cur{color:white;font-weight:700;}
-.screen{display:none;}
-.screen.active{display:block;}
+nav a{color:#aaa;font-size:12px;text-decoration:none;margin-left:16px;}
+nav a:hover,nav a.on{color:white;font-weight:700;}
 
-/* ── HOME ── */
-#home{max-width:680px;margin:0 auto;padding:28px 16px 60px;}
-.home-title{font-size:13px;color:var(--ink-soft);margin-bottom:16px;font-weight:500;}
-.main-cards{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
-.main-card{background:white;border:2px solid var(--border);border-radius:18px;padding:20px 20px 16px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:12px;}
-.main-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;}
-.main-card.g::before{background:var(--blue);}
-.main-card.h::before{background:var(--red);}
-.main-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.1);}
-.main-card.g:hover{border-color:var(--blue);}
-.main-card.h:hover{border-color:var(--red);}
-.mc-left{flex:1;}
-.mc-icon{font-size:26px;margin-bottom:8px;}
-.mc-title{font-size:17px;font-weight:700;margin-bottom:3px;}
-.mc-desc{font-size:12px;color:var(--ink-soft);line-height:1.5;margin-bottom:10px;}
-.mc-tags{display:flex;gap:6px;flex-wrap:wrap;}
+/* SCREENS */
+.scr{display:none;max-width:680px;margin:0 auto;padding:24px 16px 80px;}
+.scr.on{display:block;}
+
+/* HOME */
+.card{background:white;border:2px solid var(--border);border-radius:16px;padding:20px;margin-bottom:14px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;}
+.card.g::before{background:var(--blue);}
+.card.h::before{background:var(--red);}
+.card.w::before{background:var(--orange);}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.1);}
+.card.g:hover{border-color:var(--blue);}
+.card.h:hover{border-color:var(--red);}
+.card.w:hover{border-color:var(--orange);}
+.card-icon{font-size:26px;margin-bottom:8px;}
+.card-title{font-size:17px;font-weight:700;margin-bottom:4px;}
+.card-desc{font-size:12px;color:var(--soft);line-height:1.5;margin-bottom:10px;}
+.tags{display:flex;gap:6px;flex-wrap:wrap;}
 .tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;}
-.tag.blue{background:var(--blue-light);color:var(--blue);}
-.tag.red{background:var(--red-light);color:var(--red);}
+.tag.b{background:var(--blue-l);color:var(--blue);}
+.tag.r{background:var(--red-l);color:var(--red);}
 .tag.warn{background:#fef3c7;color:#92400e;}
-.mc-arrow{font-size:22px;color:var(--border);flex-shrink:0;}
-.main-card.g:hover .mc-arrow{color:var(--blue);}
-.main-card.h:hover .mc-arrow{color:var(--red);}
+.card-arrow{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:20px;color:#ccc;}
+.wb-badge{background:var(--orange-l);color:var(--orange);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.wb-badge.zero{background:var(--green-l);color:var(--green);}
+.home-label{font-size:11px;font-weight:700;color:var(--soft);letter-spacing:2px;margin-bottom:12px;}
 
-.wrong-card{background:white;border:2px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:all .15s;}
-.wrong-card:hover{border-color:var(--orange);transform:translateY(-1px);}
-.wc-left{display:flex;align-items:center;gap:12px;}
-.wc-icon{font-size:22px;}
-.wc-text{font-size:14px;font-weight:700;}
-.wc-sub{font-size:11px;color:var(--ink-soft);margin-top:2px;}
-.wc-badge{background:var(--orange-light);color:var(--orange);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;}
-.wc-badge.zero{background:var(--green-light);color:var(--green);}
-
-/* ── SUB (mode select) ── */
-#sub{max-width:680px;margin:0 auto;padding:20px 16px 60px;}
-.sub-back{display:flex;align-items:center;gap:8px;margin-bottom:20px;cursor:pointer;color:var(--ink-soft);font-size:13px;}
+/* SUB (mode select) */
+.sub-back{display:flex;align-items:center;gap:6px;color:var(--soft);font-size:13px;cursor:pointer;margin-bottom:20px;}
 .sub-back:hover{color:var(--ink);}
-.sub-header{margin-bottom:24px;}
-.sub-icon{font-size:36px;margin-bottom:8px;}
-.sub-title{font-size:22px;font-weight:700;margin-bottom:4px;}
-.sub-desc{font-size:13px;color:var(--ink-soft);line-height:1.6;}
-.mode-cards{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
-.mode-card{background:white;border:2px solid var(--border);border-radius:14px;padding:18px 20px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:space-between;}
-.mode-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
-.mode-card.mock:hover{border-color:var(--blue);}
-.mode-card.practice:hover{border-color:var(--green);}
-.mode-left{display:flex;align-items:center;gap:14px;}
-.mode-emoji{font-size:28px;}
+.sub-head{margin-bottom:24px;}
+.sub-icon{font-size:32px;margin-bottom:6px;}
+.sub-title{font-size:20px;font-weight:700;margin-bottom:4px;}
+.sub-info{font-size:12px;color:var(--soft);line-height:1.6;}
+.mode-card{background:white;border:2px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:all .15s;}
+.mode-card:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.1);}
+.mode-card.mk:hover{border-color:var(--blue);}
+.mode-card.pr:hover{border-color:var(--green);}
+.mode-icon{font-size:26px;margin-right:14px;}
 .mode-name{font-size:15px;font-weight:700;margin-bottom:3px;}
-.mode-hint{font-size:12px;color:var(--ink-soft);}
-.mode-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
-.mode-start{font-size:22px;color:var(--border);}
-.mode-card.mock:hover .mode-start{color:var(--blue);}
-.mode-card.practice:hover .mode-start{color:var(--green);}
-.sub-wrong-row{background:white;border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;}
-.swr-left{font-size:13px;color:var(--ink-soft);}
-.swr-count{font-size:15px;font-weight:700;color:var(--orange);}
+.mode-hint{font-size:12px;color:var(--soft);}
+.mode-arrow{font-size:20px;color:#ccc;}
 
-/* ── QUIZ ── */
-#quiz{max-width:680px;margin:0 auto;padding:16px 16px 80px;}
-.quiz-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap;}
+/* QUIZ */
+#quiz{padding-bottom:100px;}
+.qtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
 .qbadge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;color:white;}
 .qbadge.g{background:var(--blue);}
 .qbadge.h{background:var(--red);}
-.qprog{font-size:12px;color:var(--ink-soft);}
+.qprog{font-size:12px;color:var(--soft);}
 .qtimer{background:var(--ink);color:white;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;}
-.qtimer.warn{background:var(--red);animation:pulse 1s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.7;}}
-.prog-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:14px;overflow:hidden;}
-.prog-fill{height:100%;border-radius:2px;transition:width .3s;}
-.prog-fill.g{background:var(--blue);}
-.prog-fill.h{background:var(--red);}
-.q-card{background:white;border:1px solid var(--border);border-radius:16px;padding:22px 18px;margin-bottom:12px;}
-.q-num{font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:8px;}
-.q-num.g{color:var(--blue);}
-.q-num.h{color:var(--red);}
-.q-text{font-size:15px;line-height:1.8;}
+.qtimer.warn{background:var(--red);}
+.qtimer.hidden{display:none;}
+.progbar{height:4px;background:var(--border);border-radius:2px;margin-bottom:14px;overflow:hidden;}
+.progfill{height:100%;border-radius:2px;transition:width .3s;}
+.progfill.g{background:var(--blue);}
+.progfill.h{background:var(--red);}
+.qcard{background:white;border:1px solid var(--border);border-radius:14px;padding:20px 16px;margin-bottom:12px;}
+.qnum{font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:8px;}
+.qnum.g{color:var(--blue);}
+.qnum.h{color:var(--red);}
+.qtext{font-size:15px;line-height:1.8;}
+.qimg{width:100%;max-width:260px;height:auto;display:block;margin:10px auto 8px;border-radius:8px;background:#f5f5f5;padding:4px;object-fit:contain;}
 .ans-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
-.ans-btn{padding:14px;border-radius:12px;border:2px solid var(--border);background:white;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .12s;}
-.ans-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.1);}
-.ans-btn.correct{background:#edfaf3;border-color:var(--green);color:var(--green);}
-.ans-btn.wrong{background:#fff0f2;border-color:var(--red);color:var(--red);}
-.ans-btn:disabled{cursor:not-allowed;}
+.abtn{padding:14px;border-radius:12px;border:2px solid var(--border);background:white;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .12s;}
+.abtn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08);}
+.abtn.correct{background:#edfaf3;border-color:var(--green);color:var(--green);}
+.abtn.wrong{background:#fff0f2;border-color:var(--red);color:var(--red);}
 .expl{background:#f8f9ff;border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 14px;font-size:13px;line-height:1.65;display:none;margin-bottom:10px;}
 .expl.show{display:block;}
-.next-btn{width:100%;padding:13px;border-radius:12px;border:none;background:var(--ink);color:white;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:none;}
-.next-btn.show{display:block;}
-.next-btn:hover{background:#2d2d4a;}
+.nextbtn{width:100%;padding:14px;border-radius:12px;border:none;background:var(--ink);color:white;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:none;}
+.nextbtn.show{display:block;}
+.nextbtn:hover{background:#2d2d4a;}
+.quit-btn{background:none;border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--soft);cursor:pointer;font-family:inherit;}
 
-/* ── REVIEW (错题复盘) ── */
-#review{max-width:680px;margin:0 auto;padding:20px 16px 60px;}
-.review-summary{background:white;border-radius:18px;padding:28px 20px;text-align:center;margin-bottom:20px;border:1px solid var(--border);}
+/* RESULT */
+.result-box{background:white;border-radius:18px;padding:28px 20px;text-align:center;margin-bottom:16px;border:1px solid var(--border);}
 .score-circle{width:110px;height:110px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 14px;border:5px solid;}
-.score-circle.pass{border-color:var(--green);background:var(--green-light);}
-.score-circle.fail{border-color:var(--red);background:var(--red-light);}
+.score-circle.pass{border-color:var(--green);background:var(--green-l);}
+.score-circle.fail{border-color:var(--red);background:var(--red-l);}
 .score-num{font-size:36px;font-weight:700;line-height:1;}
 .pass .score-num{color:var(--green);}
 .fail .score-num{color:var(--red);}
-.score-denom{font-size:12px;color:var(--ink-soft);}
+.score-den{font-size:12px;color:var(--soft);}
 .verdict{font-size:20px;font-weight:700;margin-bottom:4px;}
-.verdict-sub{font-size:13px;color:var(--ink-soft);}
-.meta-row{display:flex;justify-content:center;gap:28px;margin-top:18px;}
-.meta-item{text-align:center;}
+.verdict-sub{font-size:13px;color:var(--soft);}
+.meta-row{display:flex;justify-content:center;gap:24px;margin-top:18px;}
 .meta-num{font-size:20px;font-weight:700;}
-.meta-label{font-size:11px;color:var(--ink-soft);margin-top:2px;}
-.review-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
-.btn-main{padding:13px;border-radius:12px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;color:white;}
-.btn-main.g{background:var(--blue);}
-.btn-main.h{background:var(--red);}
-.btn-main:hover{opacity:.9;}
-.btn-sec{padding:13px;border-radius:12px;border:2px solid var(--border);background:white;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;}
-.btn-sec:hover{border-color:var(--ink);}
-
-.review-list-title{font-size:12px;font-weight:700;color:var(--ink-soft);letter-spacing:1px;margin-bottom:12px;}
-.review-item{background:white;border-radius:12px;border:1px solid var(--border);padding:16px;margin-bottom:10px;}
-.review-item.wrong-item{border-left:3px solid var(--red);}
-.review-item.correct-item{border-left:3px solid var(--green);}
-.ri-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-.ri-num{font-size:11px;font-weight:700;color:var(--ink-soft);}
-.ri-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;}
-.ri-tag.w{background:var(--red-light);color:var(--red);}
-.ri-tag.c{background:var(--green-light);color:var(--green);}
-.ri-q{font-size:14px;line-height:1.65;margin-bottom:10px;}
-.ri-ans{display:flex;gap:16px;font-size:12px;margin-bottom:8px;}
+.meta-label{font-size:11px;color:var(--soft);margin-top:2px;}
+.result-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.btn-p{padding:13px;border-radius:12px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;color:white;}
+.btn-p.g{background:var(--blue);}
+.btn-p.h{background:var(--red);}
+.btn-s{padding:13px;border-radius:12px;border:2px solid var(--border);background:white;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;}
+.review-title{font-size:12px;font-weight:700;color:var(--soft);letter-spacing:1px;margin-bottom:12px;}
+.ri{background:white;border-radius:12px;border:1px solid var(--border);border-left:3px solid var(--red);padding:14px;margin-bottom:10px;}
+.ri-num{font-size:11px;font-weight:700;color:var(--soft);}
+.ri-q{font-size:14px;line-height:1.6;margin:6px 0 8px;}
+.ri-ans{font-size:12px;margin-bottom:6px;}
 .ri-correct{color:var(--green);font-weight:700;}
-.ri-wrong-ans{color:var(--red);font-weight:700;}
-.ri-expl{font-size:12px;color:var(--ink-soft);line-height:1.6;background:var(--bg);border-radius:8px;padding:10px 12px;}
+.ri-wrong{color:var(--red);font-weight:700;}
+.ri-e{font-size:12px;color:var(--soft);line-height:1.6;background:var(--bg);border-radius:8px;padding:8px 10px;}
 
-/* ── WRONG BOOK ── */
-#wrongbook{max-width:680px;margin:0 auto;padding:20px 16px 60px;}
+/* WRONGBOOK */
 .wb-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
-.wb-back{background:none;border:none;cursor:pointer;font-size:22px;padding:4px;color:var(--ink);}
+.wb-back{background:none;border:none;cursor:pointer;font-size:22px;color:var(--ink);}
 .wb-title{font-size:18px;font-weight:700;}
-.wb-empty{text-align:center;padding:48px 20px;color:var(--ink-soft);}
-.wb-empty-icon{font-size:48px;margin-bottom:12px;}
-.wb-item{background:white;border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:12px;padding:14px 16px;margin-bottom:10px;}
-.wb-q{font-size:14px;line-height:1.6;margin-bottom:8px;}
-.wb-ans{font-size:12px;color:var(--ink-soft);line-height:1.5;}
-.wb-correct{color:var(--green);font-weight:700;}
-.wb-wrong-c{color:var(--red);font-weight:700;}
-.wb-clear{width:100%;padding:12px;border-radius:10px;border:2px solid #fca5a5;background:white;color:var(--red);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:8px;}
-.wb-clear:hover{background:var(--red-light);}
+.wb-empty{text-align:center;padding:48px;color:var(--soft);}
+.wi{background:white;border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:12px;padding:14px;margin-bottom:10px;}
+.wi-q{font-size:14px;line-height:1.6;margin-bottom:6px;}
+.wi-ans{font-size:12px;color:var(--soft);}
+.clear-btn{width:100%;padding:12px;border-radius:10px;border:2px solid #fca5a5;background:white;color:var(--red);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:8px;}
 
-footer{text-align:center;padding:24px 16px;font-size:11px;color:#aaa;border-top:1px solid var(--border);margin-top:16px;}
+footer{text-align:center;padding:20px 16px;font-size:11px;color:#aaa;border-top:1px solid var(--border);margin-top:8px;}
 </style>
 </head>
 <body>
 <header>
-  <div><div class="logo-text">🚗 jpdrivingtest.com</div><div class="logo-sub">日本驾照笔试中文练习</div></div>
-  <nav>
-    <a href="index.html" class="cur">练习题库</a>
-    <a href="guide.html">备考指南</a>
-  </nav>
+  <div><div class="logo">🚗 jpdrivingtest.com</div><div class="logo-sub">日本驾照笔试中文练习</div></div>
+  <nav><a href="index.html" class="on">练习题库</a><a href="guide.html">备考指南</a></nav>
 </header>
 
-<!-- ① 首页 -->
-<div id="home" class="screen active">
-  <div style="max-width:680px;margin:0 auto;padding:28px 16px 60px;">
-    <div class="home-title">选择考试类型，开始练习 👇</div>
-    <div class="main-cards">
-      <div class="main-card g" onclick="goSub('g')">
-        <div class="mc-left">
-          <div class="mc-icon">🌏</div>
-          <div class="mc-title">外国驾照换日本驾照</div>
-          <div class="mc-desc">覆盖全部考试考点 · 考试范围100%覆盖<br>刷完本题库即可应对真实考试</div>
-          <div class="mc-tags">
-            <span class="tag blue">1000+道题</span>
-            <span class="tag blue">30分钟</span>
-            <span class="tag warn">仅允许错5题</span>
-          </div>
-        </div>
-        <div class="mc-arrow">›</div>
-      </div>
-      <div class="main-card h" onclick="goSub('h')">
-        <div class="mc-left">
-          <div class="mc-icon">🏫</div>
-          <div class="mc-title">本免许学科考试</div>
-          <div class="mc-desc">覆盖全部考试考点 · 考试范围100%覆盖<br>刷完本题库即可应对真实考试</div>
-          <div class="mc-tags">
-            <span class="tag red">1000+道题</span>
-            <span class="tag red">50分钟</span>
-            <span class="tag warn">仅允许错5题</span>
-          </div>
-        </div>
-        <div class="mc-arrow">›</div>
-      </div>
-    </div>
-    <div class="wrong-card" onclick="goWrongBook()">
-      <div class="wc-left">
-        <div class="wc-icon">📝</div>
-        <div>
-          <div class="wc-text">错题本</div>
-          <div class="wc-sub">集中练习做错过的题目</div>
-        </div>
-      </div>
-      <div class="wc-badge zero" id="wcBadge">暂无错题</div>
-    </div>
+<!-- 首页 -->
+<div id="home" class="scr on">
+  <div class="home-label">选择考试类型</div>
+  <div class="card g" onclick="goSub('g')">
+    <div class="card-icon">🌏</div>
+    <div class="card-title">外国驾照换日本驾照</div>
+    <div class="card-desc">知識確認考試 · 2025年10月新制度对应<br>覆盖全部考试考点 · 考试范围100%覆盖</div>
+    <div class="tags"><span class="tag b">1000+道题</span><span class="tag b">30分钟</span><span class="tag warn">仅允许错5题</span></div>
+    <div class="card-arrow">›</div>
+  </div>
+  <div class="card h" onclick="goSub('h')">
+    <div class="card-icon">🏫</div>
+    <div class="card-title">本免许学科考试</div>
+    <div class="card-desc">普通免許 学科試験<br>覆盖全部考试考点 · 考试范围100%覆盖</div>
+    <div class="tags"><span class="tag r">1000+道题</span><span class="tag r">50分钟</span><span class="tag warn">仅允许错5题</span></div>
+    <div class="card-arrow">›</div>
+  </div>
+  <div class="card w" onclick="goWB()">
+    <div class="card-icon">📝</div>
+    <div class="card-title">错题本</div>
+    <div class="card-desc">集中练习做错过的题目</div>
+    <div style="margin-top:8px;"><span class="wb-badge zero" id="wbBadge">暂无错题</span></div>
   </div>
 </div>
 
-<!-- ② 子页面：选择模式 -->
-<div id="sub" class="screen">
+<!-- 模式选择 -->
+<div id="sub" class="scr">
   <div class="sub-back" onclick="goHome()">← 返回</div>
-  <div class="sub-header">
+  <div class="sub-head">
     <div class="sub-icon" id="subIcon">🌏</div>
     <div class="sub-title" id="subTitle">外国驾照换日本驾照</div>
-    <div class="sub-desc" id="subDesc">知識確認考試 · 50题 · 30分钟 · 合格45/50（90%）</div>
+    <div class="sub-info" id="subInfo">知識確認考試 · 50题 · 30分钟 · 合格线90%（45/50）</div>
   </div>
-  <div class="mode-cards">
-    <div class="mode-card mock" onclick="startQuiz('mock')">
-      <div class="mode-left">
-        <div class="mode-emoji">⏱️</div>
-        <div>
-          <div class="mode-name">模拟考试</div>
-          <div class="mode-hint">真实考场环境，答完统一查看错题复盘</div>
-          <div class="mode-tags">
-            <span class="tag blue">计时</span>
-            <span class="tag blue">答完看解析</span>
-          </div>
-        </div>
-      </div>
-      <div class="mode-start">›</div>
+  <div class="mode-card mk" onclick="go('mock')">
+    <div style="display:flex;align-items:center;">
+      <div class="mode-icon">⏱️</div>
+      <div><div class="mode-name">模拟考试</div><div class="mode-hint">限时 · 答完统一查看错题复盘</div></div>
     </div>
-    <div class="mode-card practice" onclick="startQuiz('practice')">
-      <div class="mode-left">
-        <div class="mode-emoji">📖</div>
-        <div>
-          <div class="mode-name">练习模式</div>
-          <div class="mode-hint">每题即时显示答案解析，不计时</div>
-          <div class="mode-tags">
-            <span class="tag" style="background:var(--green-light);color:var(--green);">不计时</span>
-            <span class="tag" style="background:var(--green-light);color:var(--green);">即时解析</span>
-          </div>
-        </div>
-      </div>
-      <div class="mode-start">›</div>
-    </div>
+    <div class="mode-arrow">›</div>
   </div>
-  <div class="sub-wrong-row">
-    <div class="swr-left">📝 错题本 · 可在首页查看</div>
-    <div class="swr-count" id="subWrongCount">0 道错题</div>
+  <div class="mode-card pr" onclick="go('practice')">
+    <div style="display:flex;align-items:center;">
+      <div class="mode-icon">📖</div>
+      <div><div class="mode-name">练习模式</div><div class="mode-hint">不限时 · 即时显示答案解析</div></div>
+    </div>
+    <div class="mode-arrow">›</div>
   </div>
 </div>
 
-<!-- ③ 答题 -->
-<div id="quiz" class="screen">
-  <div class="quiz-top">
-    <span class="qbadge g" id="quizBadge">外免切替</span>
-    <span class="qprog" id="progText">第 1 题 / 共 50 题</span>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <span class="qtimer" id="timerDisplay" style="display:none">30:00</span>
-      <button onclick="exitQuiz()" style="background:none;border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--ink-soft);cursor:pointer;font-family:inherit;">退出</button>
+<!-- 答题 -->
+<div id="quiz" class="scr">
+  <div class="qtop">
+    <span class="qbadge g" id="qBadge">外免切替</span>
+    <span class="qprog" id="qProg">第1题/共50题</span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span class="qtimer hidden" id="qTimer">30:00</span>
+      <button class="quit-btn" onclick="quit()">退出</button>
     </div>
   </div>
-  <div class="prog-bar"><div class="prog-fill g" id="progFill" style="width:0%"></div></div>
-  <div class="q-card">
-    <div class="q-num g" id="qNum">第 1 题</div>
-    <div class="q-text" id="qText"></div>
+  <div class="progbar"><div class="progfill g" id="qFill" style="width:0%"></div></div>
+  <div class="qcard">
+    <div class="qnum g" id="qNum">第1题</div>
+    <div id="qText" class="qtext"></div>
   </div>
   <div class="ans-row">
-    <button class="ans-btn" id="btnTrue" onclick="submitAnswer(true)">○ 正确</button>
-    <button class="ans-btn" id="btnFalse" onclick="submitAnswer(false)">✕ 错误</button>
+    <button class="abtn" id="btnO" onclick="ans(true)">○ 正确</button>
+    <button class="abtn" id="btnX" onclick="ans(false)">✕ 错误</button>
   </div>
   <div class="expl" id="expl"></div>
-  <button class="next-btn" id="nextBtn" onclick="nextQuestion()">下一题 →</button>
+  <button class="nextbtn" id="nxtBtn" onclick="next()">下一题 →</button>
 </div>
 
-<!-- ④ 错题复盘 -->
-<div id="review" class="screen">
-  <div style="max-width:680px;margin:0 auto;padding:20px 16px 60px;">
-    <div class="review-summary">
-      <div class="score-circle pass" id="scoreCircle">
-        <div class="score-num" id="scoreNum">45</div>
-        <div class="score-denom">/ 50</div>
-      </div>
-      <div class="verdict" id="verdict">🎉 合格！</div>
-      <div class="verdict-sub" id="verdictSub"></div>
-      <div class="meta-row">
-        <div class="meta-item"><div class="meta-num" id="metaCorrect">-</div><div class="meta-label">答对</div></div>
-        <div class="meta-item"><div class="meta-num" id="metaWrong">-</div><div class="meta-label">答错</div></div>
-        <div class="meta-item"><div class="meta-num" id="metaTime">-</div><div class="meta-label">用时</div></div>
-      </div>
+<!-- 结果 -->
+<div id="result" class="scr">
+  <div class="result-box">
+    <div class="score-circle pass" id="rCircle">
+      <div class="score-num" id="rScore">45</div>
+      <div class="score-den" id="rDen">/ 50</div>
     </div>
-    <div class="review-btns">
-      <button class="btn-main g" id="reviewRestartBtn" onclick="restartQuiz()">再来一次</button>
-      <button class="btn-sec" onclick="goHome()">返回首页</button>
+    <div class="verdict" id="rVerdict">🎉 合格！</div>
+    <div class="verdict-sub" id="rSub"></div>
+    <div class="meta-row">
+      <div><div class="meta-num" id="rRight">-</div><div class="meta-label">答对</div></div>
+      <div><div class="meta-num" id="rWrong">-</div><div class="meta-label">答错</div></div>
+      <div><div class="meta-num" id="rTime">-</div><div class="meta-label">用时</div></div>
     </div>
-    <div class="review-list-title" id="reviewListTitle"></div>
-    <div id="reviewList"></div>
   </div>
+  <div class="result-btns">
+    <button class="btn-p g" id="rRetry" onclick="retry()">再来一次</button>
+    <button class="btn-s" onclick="goHome()">返回首页</button>
+  </div>
+  <div class="review-title" id="revTitle"></div>
+  <div id="revList"></div>
 </div>
 
-<!-- ⑤ 错题本 -->
-<div id="wrongbook" class="screen">
-  <div style="max-width:680px;margin:0 auto;padding:20px 16px 60px;">
-    <div class="wb-header">
-      <button class="wb-back" onclick="goHome()">←</button>
-      <div class="wb-title">📝 错题本</div>
-    </div>
-    <div id="wbContent"></div>
+<!-- 错题本 -->
+<div id="wb" class="scr">
+  <div class="wb-header">
+    <button class="wb-back" onclick="goHome()">←</button>
+    <div class="wb-title">📝 错题本</div>
   </div>
+  <div id="wbContent"></div>
 </div>
 
 <footer>© 2025 jpdrivingtest.com · 免费中文日本驾照练习题库 · 题目仅供练习参考</footer>
 <script>
-let examType=null, quizMode=null;
-let questions=[], currentIdx=0, answers=[], timerInterval=null, timeLeft=0, startTime=null;
 
 const HONMEN_BANK=[
 {id:1,q:"在一般道路上，汽车最高行驶速度为60km/h。",a:true,e:"正确。一般道路最高速度60km/h，有标识则以标识为准。"},
@@ -587,7 +506,6 @@ const HONMEN_BANK=[
 {id:300,q:"驾驶员在发现自己驾驶能力因年龄或健康因素下降时，应主动考虑停止驾驶或限制驾驶范围。",a:true,e:"正确。驾驶员有责任客观评估自身驾驶能力，当身体条件不再适合驾驶时，主动放弃驾照是对自身和他人负责的行为。"},
 ];
 
-// ===== 外免切替题库 100题 =====
 const GAIMEN_BANK=[
 {id:201,q:"2025年10月起，外免切替的知识确认考试从10题改为50题。",a:true,e:"正确。2025年10月1日起，外免换考笔试从原来的10题改为50题，出题范围扩大至22个领域。"},
 {id:202,q:"外免切替知识确认考试的合格线是答对90%以上，即50题中至少45题正确。",a:true,e:"正确。新制度要求答对率90%以上（45/50题），只允许错5题。"},
@@ -791,148 +709,6 @@ const GAIMEN_BANK=[
 {id:400,q:"在日本，外免切替申请前须确认：持有有效外国驾照、在颁证国居住满3个月、持有效在留资格三个基本条件。",a:true,e:"正确。外免切替的三个基本条件缺一不可：①有效外国驾照原件②在颁证国居住满3个月（护照证明）③有效日本在留资格，满足这三个条件才能开始申请流程。"},
 ];
 
-
-// ===== 标志图示题库 (45题) =====
-// ===== TSV图示题库 =====
-const IMG_SIGN_BANK = [
-{id:2001,q:'图示路侧标示表示该处禁止一切停车行为，含长时停车和临时停车。',img:'images/img-x-03044-x-03-x-A-x-駐停車禁止路側帯.gif',a:true,e:'正确。黄色斜线路侧带（駐停車禁止路側帯）表示禁止一切停车，包括长时停车和临时停车。'},
-{id:2002,q:'图示标志表示行人专用道路，车辆不得通行（仅限减速即可通行）。',img:'images/img-x-original-x-01-x-A-x-1規制-32歩行者専用.jpg',a:false,e:'错误。行人专用道路只允许持警察署长许可的车辆进入，普通车辆不得通行，仅减速不够。'},
-{id:2003,q:'图示标志表示禁止所有车辆通行，但行人可以通过。',img:'images/img-x-original-x-01-x-A-x-1規制-11車両通行止め.jpg',a:true,e:'正确。「車両通行止め」仅禁止车辆通行，行人不受限制，与通行止め不同。'},
-{id:2004,q:'图示标志表示除摩托车外的所有机动车禁止通行。',img:'images/img-x-original-x-01-x-A-x-1規制-04二輪自動車以外.jpg',a:false,e:'错误。该标志仅允许二轮摩托车通行，禁止所有其他机动车，包括普通乘用车和四轮车辆。'},
-{id:2005,q:'图示路面标示表示前方为优先道路，进入时须让优先道路上的车辆先行。',img:'images/img-x-original-x-03-x-B-x-8指示-15前方優先道路.jpg',a:false,e:'错误。该标示表示前方为优先道路，不仅仅是有交叉路口的提示。'},
-{id:2006,q:'图示标志表示该路段的最高行驶速度限制，所有车辆不得超过此速度。',img:'images/img-x-original-x-01-x-A-x-1規制-26最高速度.jpg',a:true,e:'正确。圆形「最高速度」标志规定该路段的最高限速，须严格遵守。'},
-{id:2007,q:'图示标志表示该车道为特定车辆专用通行带。',img:'images/img-x-original-x-01-x-A-x-1規制-37専用通行帯.jpg',a:true,e:'正确。专用通行带仅供特定车辆使用，其他车辆不得进入。'},
-{id:2008,q:'图示标志表示禁止所有车辆通行，但行人可以通过。',img:'images/img-x-original-x-01-x-A-x-1規制-02車両通行止め.jpg',a:true,e:'正确。「車両通行止め」仅禁止车辆通行，行人不受限制，与通行止め不同。'},
-{id:2009,q:'图示路面标示表示该区域为禁止停车区，即使绿灯也不可在此处停车等候。',img:'images/img-x-original-x-03-x-A-x-7規制標示-08停止禁止部分.jpg',a:true,e:'正确。「停止禁止部分」是路面黄色网格区域，禁止车辆在此停留。'},
-{id:2010,q:'图示标志禁止长时停车，但允许短暂临时停车（5分钟以内）接送乘客。',img:'images/img-x-original-x-01-x-A-x-1規制-19駐車禁止3.jpg',a:false,e:'错误。该标志表示禁止长时停车区域的起点，不是终点标志。'},
-{id:2011,q:'图示路面标示表示该路段禁止一切停车行为，含长时停车和临时停车。',img:'images/img-x-original-x-03-x-A-x-7規制標示-04駐停車禁止.jpg',a:true,e:'正确。黄色双斜线路面标示「駐停車禁止」表示禁止一切停车。'},
-{id:2012,q:'图示标志表示禁止一切通行（含行人和车辆）。',img:'images/img-x-original-x-01-x-A-x-1規制-03車両進入禁止.jpg',a:false,e:'错误。该标志是「車両進入禁止」，仅禁止车辆驶入，行人不受限制。'},
-{id:2013,q:'图示标志表示禁止越过中心线进入对向车道超车，但在本方车道内超车是允许的。',img:'images/img-x-original-x-01-x-A-x-1規制-16追越しのための右.jpg',a:false,e:'错误。该标志「追越しのための右側部分はみ出し通行禁止」仅禁止越过中心线超车，本方车道内超车不受限制。'},
-{id:2014,q:'图示标示板表示可以左转，车辆可在任何信号状态下左转，但须让行横道行人。',img:'images/img-x-original-x-01-x-E-x-6標示板-02左折可.jpg',a:true,e:'正确。「左折可」标示板允许在任何信号状态下左转，但须注意让行横道上的行人和自行车。'},
-{id:2015,q:'图示路面菱形标示提示前方有行人横道或自行车横道，须提前减速。',img:'images/img-x-original-x-03-x-B-x-8指示-14横断歩道または２.jpg',a:true,e:'正确。菱形路面标示提示前方有横道，横道有行人时须停车让行。'},
-{id:2016,q:'图示标志规定在该路口只能按箭头所示方向行驶，禁止其他方向。',img:'images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止7.jpg',a:false,e:'错误。该标志的限制以箭头为准，需仔细确认允许通行的方向。'},
-{id:2017,q:'图示路面标示表示禁止驶入该区域（立入禁止）。',img:'images/img-x-original-x-03-x-A-x-7規制標示-07立入り禁止部分.jpg',a:true,e:'正确。「立入り禁止部分」禁止车辆驶入该区域，须绕行。'},
-{id:2018,q:'图示标志表示该路段完全禁止超车，即使不越过中心线也不得超车。',img:'images/img-x-original-x-01-x-A-x-1規制-17追越し禁止.jpg',a:true,e:'正确。「追越し禁止」禁止一切超车行为，不同于仅禁止越过中心线的标志。'},
-{id:2019,q:'图示警告标志提示附近有学校、幼儿园或托儿所，须减速注意儿童。',img:'images/img-x-original-x-01-x-C-x-3警戒-12学校・幼・保.jpg',a:true,e:'正确。菱形警告标志提示附近有儿童设施，须大幅减速，随时准备停车。'},
-{id:2020,q:'图示标志表示该路段禁止掉头（U形转弯）。',img:'images/img-x-original-x-01-x-A-x-転回禁止.gif',a:true,e:'正确。「転回禁止」禁止在该路段进行掉头，须在允许的路段掉头。'},
-{id:2021,q:'图示标志/标示：This road marking shows the portion of the road to...',img:'images/img-x-original-x-03-x-A-x-7規制標示-21右左折の方法1.jpg',a:true,e:'正确。Correct'},
-{id:2022,q:'图示标志/标示：On the road with this road sign, the drivers need ...',img:'images/img-x-original-x-01-x-C-x-3警戒-14すべりやすい.jpg',a:false,e:'错误。This road sign indicates “Slippery road”'},
-{id:2023,q:'图示路面标示表示该路段禁止一切停车行为，含长时停车和临时停车。',img:'images/img-x-original-x-01-x-A-x-1規制-18駐停車禁止.jpg',a:true,e:'正确。黄色双斜线路面标示「駐停車禁止」表示禁止一切停车。'},
-{id:2024,q:'图示标志/标示：On a road with this road sign, two wheelers motor ...',img:'images/img-x-original-x-01-x-A-x-1規制-08二輪の自動車.jpg',a:true,e:'正确。Correct'},
-{id:2025,q:'图示标志/标示：This road sign indicates Right turn prohibited.',img:'images/img-x-original-x-01-x-A-x-1規制-14車両横断禁止.jpg',a:false,e:'错误。This road sign indicates “No crossing”.  You must not make a right turn to enter'},
-{id:2026,q:'图示标志表示该路段的最高行驶速度限制，所有车辆不得超过此速度。',img:'images/img-x-original-x-01-x-A-x-1規制-26最高速度3.jpg',a:true,e:'正确。圆形「最高速度」标志规定该路段的最高限速，须严格遵守。'},
-{id:2027,q:'图示标志/标示：The location with this road sign, drivers always m...',img:'images/img-x-original-x-01-x-B-x-2指示-11安全地帯.jpg',a:false,e:'错误。This road sign indicates safety zone. It doesnt mean drivers always must slow do'},
-{id:2028,q:'图示标志/标示：When you are passing a place where this sign is po...',img:'images/img-x-original-x-01-x-A-x-1規制-43警笛鳴らせ.jpg',a:true,e:'正确。correct'},
-{id:2029,q:'图示标志规定在该路口只能按箭头所示方向行驶，禁止其他方向。',img:'images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止1.jpg',a:true,e:'正确。须按标志箭头方向行驶，禁止其他方向通行。'},
-{id:2030,q:'图示标志/标示：You must drive slowly where there is this sign on ...',img:'images/img-x-original-x-01-x-A-x-1規制-45徐行.jpg',a:true,e:'正确。correct'},
-{id:2031,q:'图示标志/标示：The sign indicates a crosswalk.',img:'images/img-x-original-x-01-x-B-x-2指示-08横断歩道2.jpg',a:true,e:'正确。Correct'},
-{id:2032,q:'图示标志表示该路段禁止掉头（U形转弯）。',img:'images/img-x-original-x-03-x-A-x-7規制標示-01転回禁止2.jpg',a:true,e:'正确。「転回禁止」禁止在该路段进行掉头，须在允许的路段掉头。'},
-{id:2033,q:'图示标志/标示：This sign means you may proceed slowly after check...',img:'images/img-x-original-x-01-x-A-x-1規制-47一時停止.jpg',a:false,e:'错误。Drivers must stop in any situation at the place with this sign.'},
-{id:2034,q:'图示路面标示表示在该路段禁止按箭头方向变更车道。',img:'images/img-x-original-x-03-x-A-x-7規制標示-03進路変更禁止1.jpg',a:true,e:'正确。进路变更禁止标示表示禁止向标示方向变更车道。'},
-{id:2035,q:'图示标志表示该车道为特定车辆专用通行带。',img:'images/img-x-original-x-03-x-A-x-7規制標示-17専用通行帯.jpg',a:false,e:'错误。请仔细确认专用通行带的适用车辆范围。'},
-{id:2036,q:'图示标志表示该路段禁止掉头（U形转弯）。',img:'images/img-x-original-x-01-x-A-x-1規制-15転回禁止.jpg',a:true,e:'正确。「転回禁止」禁止在该路段进行掉头，须在允许的路段掉头。'},
-{id:2037,q:'图示标志/标示：This road sign indicates pedestrian crossing.',img:'images/img-x-original-x-01-x-A-x-横断歩道.gif',a:true,e:'正确。Correct'},
-{id:2038,q:'图示标志/标示：On a street with this road sign, it indicates two ...',img:'images/img-x-original-x-01-x-A-x-1規制-41原付右折二段階.jpg',a:true,e:'正确。Correct'},
-{id:2039,q:'图示标志表示该车道为特定车辆专用通行带。',img:'images/img-x-03044-x-03-x-A-x-専用通行帯.gif',a:true,e:'正确。专用通行带仅供特定车辆使用，其他车辆不得进入。'},
-{id:2040,q:'图示标志/标示：This road sign indicates ”Road narrows”.',img:'images/img-x-original-x-01-x-C-x-3警戒-18車線数減少.jpg',a:false,e:'错误。This road sign indicates ”Fewer lanes”.'},
-{id:2041,q:'图示标志/标示：This road sign indicates ”Closed to motor vehicles...',img:'images/img-x-original-x-01-x-A-x-1規制-01通行止め.jpg',a:false,e:'错误。This road sign indicates ”Road closed”. Not only motor vehicles but also mopeds,'},
-{id:2042,q:'图示标志/标示：This road sign indicates ”Sound horn”.',img:'images/img-x-original-x-01-x-C-x-3警戒-26その他の危険.jpg',a:false,e:'错误。This road sign indicates ”Other dangers”.'},
-{id:2043,q:'图示标志/标示：In section of a roadway where this road sign is po...',img:'images/img-x-original-x-01-x-A-x-1規制-28最低速度.jpg',a:false,e:'错误。This road sign is ”Minimum speed limit”. In this section, you must not drive at '},
-{id:2044,q:'图示标志/标示：This road sign indicates ”Safety zone”.',img:'images/img-x-original-x-01-x-A-x-優先道路.gif',a:false,e:'错误。This road sign indicates ”Right-of-way”.'},
-{id:2045,q:'图示标志/标示：Riding with a passenger on all large/regular motor...',img:'images/img-x-original-x-01-x-A-x-1規制-12大型自動二輪車.jpg',a:false,e:'错误。This road sign indicates riding with a passenger on all large/regular motorcycle'},
-{id:2046,q:'图示标志/标示：This road marking indicates ”No entry for bicycles...',img:'images/img-x-03044-x-03-x-A-x-普通二輪車の交差点進入禁止.gif',a:true,e:'正确。Correct'},
-{id:2047,q:'图示标志/标示：This road sign indicates ”Streetcar ahead”.',img:'images/img-x-original-x-01-x-C-x-3警戒-11踏切2.jpg',a:false,e:'错误。This road sign indicates ”Railway crossing”.'},
-{id:2048,q:'图示标志/标示：U-turn is not allowed in locations ahead of this r...',img:'images/img-x-original-x-03-x-A-x-7規制標示-27終わり1.jpg',a:false,e:'错误。This road marking indicates U-turn prohibited area has finishied. U-turn is allo'},
-{id:2049,q:'图示标志/标示：This sign means, the road is closed to regular mot...',img:'images/img-x-original-x-01-x-A-x-1規制-29自動車専用.jpg',a:false,e:'错误。False'},
-{id:2050,q:'图示标志禁止长时停车，但允许短暂临时停车（5分钟以内）接送乘客。',img:'images/img-x-original-x-01-x-A-x-1規制-19駐車禁止.jpg',a:true,e:'正确。「駐車禁止」只禁止长时停车，临时停车允许。'},
-{id:2051,q:'图示标志/标示：This road sign means that the road ahead is not as...',img:'images/img-x-original-x-01-x-C-x-3警戒-19幅員減少.jpg',a:true,e:'正确。correct'},
-{id:2052,q:'图示标志/标示：This sign controls a traffic lane for directions a...',img:'images/img-x-original-x-01-x-A-x-1規制-40進行方向別通行区分1.jpg',a:true,e:'正确。correct'},
-{id:2053,q:'图示标志/标示：This road sign indicates a microbus may enter but ...',img:'images/img-x-original-x-01-x-A-x-1規制-07大型乗用自動車.jpg',a:false,e:'错误。This road sign indicates a microbus may not enter also a passenger vehicle for m'},
-{id:2054,q:'图示标志/标示：This road marking indicates that this is the exclu...',img:'images/img-x-original-x-03-x-B-x-8指示-03自転車横断帯.jpg',a:false,e:'错误。This road marking indicates that this is the bicycle crossing zone.'},
-{id:2055,q:'图示标志规定在该路口只能按箭头所示方向行驶，禁止其他方向。',img:'images/img-x-original-x-01-x-A-x-1規制-13指定方向外禁止2.jpg',a:true,e:'正确。须按标志箭头方向行驶，禁止其他方向通行。'},
-{id:2056,q:'图示标志/标示：A road with this sign a moped making a right turn ...',img:'images/img-x-original-x-01-x-A-x-1規制-42原付右折小回り.jpg',a:false,e:'错误。This sign means that turning right mopeds must proceed to the center of the road'},
-{id:2057,q:'图示标志/标示：This road marking indicates ”bicycle crossing zone...',img:'images/img-x-original-x-03-x-A-x-7規制標示-25自転車歩道.jpg',a:false,e:'错误。This road marking indicates ”Bicycle lane”.'},
-{id:2058,q:'图示标志/标示：While driving at 5km/h to make a right turn at an ...',img:'images/1-91.gif',a:false,e:'错误。You must not follow the car in front because you can not see the other side of t'},
-{id:2059,q:'图示标志/标示：A driver is going to leave the main lane on an exp...',img:'images/1-92.gif',a:true,e:'正确。Correct'},
-{id:2060,q:'图示标志/标示：A driver is driving at 30km/h and goes straight to...',img:'images/1-94.gif',a:true,e:'正确。Correct'},
-{id:2061,q:'图示标志/标示：A driver is driving on a road under construction i...',img:'images/1-93.gif',a:true,e:'正确。Correct'},
-{id:2062,q:'图示标志/标示：A driver is going to turn right at an intersection...',img:'images/1-95.gif',a:false,e:'错误。You must not turn right without checking safety. After the truck has gone, you m'},
-{id:2063,q:'图示标志/标示：A driver is driving at 40 km/hr. What should the d...',img:'images/2-91.gif',a:false,e:'错误。Children may enter the roadway suddenly. Reduce speed and be careful of the move'},
-{id:2064,q:'图示标志/标示：A driver is driving at 5 km/hr to make a left turn...',img:'images/2-92.gif',a:false,e:'错误。Even if children are on the side walk, you should think they may enter the roadw'},
-{id:2065,q:'图示标志/标示：When you are approaching and turning left at inter...',img:'images/cyclist-1.gif',a:false,e:'错误。You must not stop and yield a motorcycle. You should move over to the left hand '},
-{id:2066,q:'图示标志/标示：When you are traveling in this situation at 40km/h...',img:'images/field-1.gif',a:true,e:'正确。Correct'},
-{id:2067,q:'图示标志/标示：When you reduce a speed your vehicle for making a ...',img:'images/night-walk.gif',a:true,e:'正确。Correct'},
-];
-
-// ===== 危险预知题库 (15题，每题3个小问) =====
-// 图片来源：https://www.takaragaike.co.jp/takara/e_mondai/
-// 每题答案格式：[小问1答案, 小问2答案, 小问3答案]，true=○正确，false=×错误
-
-// ===== 危险预知题库 15题，每题3个小问 =====
-// 图片路径使用GitHub仓库相对路径
-const KIKEN_BANK = [
-{id:3001,type:'kiken',scene:"以35km/h的速度行驶，准备直行通过有信号灯的交叉路口。",img:"images/intersection-picto.jpg",
-questions:["（1）有轨电车正在减速，可能急停或改变方向驶入本方车道，应与其保持充分安全间隔后再前进。","（2）前方有轨电车可能突然停下，须降速后再前进。","（3）路口前方状况不明，应在确认有轨电车及二轮车动向、确认安全后，再进入路口。"],
-answers:[false,true,false],explanation:"有轨电车可能突然停车，其左侧可能有行人。须降速确认安全，不可在状况不明时加速进入路口。"},
-
-{id:3002,type:'kiken',scene:"以40km/h的速度行驶，准备直行通过视野良好的无信号灯交叉路口。",img:"images/normal-road-1.jpg",
-questions:["（1）对向车可能不停车直接右转，而侧方来车也可能不停车直接穿越，无需特别注意，继续前进即可。","（2）侧方来车可能在对向车右转后紧接着穿越路口，须注意后续车辆并降速前进。","（3）侧方来车可能强行穿越优先道路，须降速并做好随时停车的准备。"],
-answers:[false,true,true],explanation:"即使是优先道路，侧方来车也可能无视优先关系强行穿越。对向右转车可能遮挡后续来车。须降速并随时准备停车。"},
-
-{id:3003,type:'kiken',scene:"以30km/h的速度行驶，准备通过前方视野不良的无信号路口。",img:"images/trees-blind.jpg",
-questions:["（1）前方行人正准备横穿，应在接近路口时再观察其动向，以目前速度继续前进。","（2）由于路口左右视野不良，须以能立即停车的速度行驶。","（3）由于前方道路可能有行人出现，须用后视镜和目视确认左右安全后通过。"],
-answers:[false,true,true],explanation:"视野不良的路口须以能立即停车的速度通过，并充分确认左右安全。不可在视野不明时保持原速前进。"},
-
-{id:3004,type:'kiken',scene:"以30km/h的速度行驶，在绿灯亮起时准备直行通过信号控制路口。",img:"images/intersection-picto.jpg",
-questions:["（1）侧方道路的车辆可能无视信号驶入，进入路口时须确认左右安全后再前进。","（2）对向大型货车可能遮挡右转车，须在绿灯且有余裕时尽快通过路口。","（3）侧方道路左侧的二轮车在红灯时必定会遵守停车，以目前速度继续前进。"],
-answers:[true,false,false],explanation:"即使绿灯，也有车辆闯红灯的可能。对向大型车可能遮挡右转车随时驶出。侧方二轮车也可能无视红灯。须降速确认安全。"},
-
-{id:3005,type:'kiken',scene:"在交叉路口内等待右转机会。",img:"images/intersection-picto.jpg",
-questions:["（1）对向公共汽车正在妨碍视线，其后方不会有车直行，可在其前方尽快右转。","（2）公共汽车在等我右转后再直行，加上后方有跟随车辆，应尽快右转。","（3）由于公共汽车后方状况不明，须等公共汽车通过后充分确认安全再右转。"],
-answers:[false,false,true],explanation:"对向公共汽车后方可能有直行车或二轮车超车。须等公共汽车通过后，充分确认对向来车状况再右转，不可强行抢转。"},
-
-{id:3006,type:'kiken',scene:"跟在对向卡车后方，以5km/h速度在路口等待右转。",img:"images/intersection-picto.jpg",
-questions:["（1）由于卡车遮挡前方视线，可跟在卡车右侧右转。","（2）由于卡车遮挡前方视线，须暂时停车等卡车右转后，确认对向来车和行人安全后再右转。","（3）由于卡车遮挡前方视线，紧跟在卡车后面等待其右转即可。"],
-answers:[false,true,false],explanation:"卡车后方的对向来车、行人及自行车可能完全被遮挡。须等卡车右转后充分确认对向状况，独立完成右转操作，不可紧跟卡车右转。"},
-
-{id:3007,type:'kiken',scene:"以10km/h的速度行驶，准备左转进入交叉路口。",img:"images/intersection-picto.jpg",
-questions:["（1）前方车辆可能在行人横穿前突然停车，须注意前方间距以目前速度前进。","（2）准备左转时，后视镜可能有盲区存在二轮车，须转头目视直接确认后再左转。","（3）大型后续车辆左侧可能有行人处于盲区，须对左侧保持充分注意后再左转。"],
-answers:[true,true,true],explanation:"左转时须注意多个方向的危险：前方车可能急停、后视镜有盲区、大型车左侧有行人盲区。须全面确认所有方向安全后再左转。"},
-
-{id:3008,type:'kiken',scene:"以40km/h的速度行驶，通过住宅区道路。",img:"images/residential.jpg",
-questions:["（1）由于不知道巷子里是否有孩子，须多次点刹降速后前进。","（2）通过巷子出口时，与对向车会车危险，须靠近中央通过巷子出口。","（3）孩子可能从巷子里跑出到车前，应鸣笛警告后通过。"],
-answers:[true,false,false],explanation:"住宅区道路巷子里随时可能有孩子冲出，须多次点刹降速，保持能立即停车的速度。靠近中央行驶或仅鸣笛都不能有效防止危险，必须从根本上降速。"},
-
-{id:3009,type:'kiken',scene:"以40km/h的速度行驶，通过停靠中的学校巴士旁。",img:"images/school-bus.jpg",
-questions:["（1）由于不知道巴士是否起步，须以能立即停车的速度通过巴士前方。","（2）由于巴士遮挡对向来车是否靠近，须确认前方安全并预判行人横穿后再前进。","（3）由于后方有跟随车辆，降速时须多次点刹以防追尾。"],
-answers:[true,true,true],explanation:"停靠中的学校巴士旁随时可能有儿童出现。须降速至能立即停车的速度，同时注意巴士遮挡的对向来车，并注意后方追尾风险。"},
-
-{id:3010,type:'kiken',scene:"准备以10km/h接近有行人横道的路口。",img:"images/pedestrian-crossing.jpg",
-questions:["（1）行人已开始横穿，须等其完全通过后再停车。","（2）由于道路旁有商店，须注意可能有自行车等突然冲出后再左转。","（3）视野范围以外可能还有其他行人，须确认整个横穿区域安全后再前进，必要时停车等待。"],
-answers:[true,true,true],explanation:"行人横道须等全员通过。商店附近可能有自行车突然出现。视野盲区内也可能有其他行人，须确认横道全区域安全后再通过。"},
-
-{id:3011,type:'kiken',scene:"以40km/h的速度行驶，通过有护栏的弯道。",img:"images/rainy-day.jpg",
-questions:["（1）对向车可能从弯道中央伸出占用本方车道，须降速靠左行驶。","（2）弯道内有护栏，无碰撞危险，以目前速度通过弯道再减速即可。","（3）由于弯道视野不良，须适时鸣笛或闪灯提醒对向来车，并降速前进。"],
-answers:[true,false,true],explanation:"弯道中对向车可能占用本方车道，须降速靠左行驶。护栏存在接触风险。须在进入弯道前充分减速，并适时提醒对向来车注意。"},
-
-{id:3012,type:'kiken',scene:"以50km/h的速度行驶，通过视野不良的弯道。",img:"images/rainy-day-1.jpg",
-questions:["（1）前方弯道急，可能转向过度撞上护栏，须降速前进。","（2）对向车不太可能出现，以目前速度进入弯道，弯道后半段再减速前进。","（3）对向车可能从弯道中央行驶过来，须降速并靠车道左侧行驶。"],
-answers:[true,false,true],explanation:"视野不良弯道可能有对向车占道。须在进入弯道前充分降速，靠左行驶。弯道中途踩刹车容易导致侧滑，必须提前在直线段降速。"},
-
-{id:3013,type:'kiken',scene:"以40km/h行驶，前方有停靠车辆，对向有巴士驶来。",img:"images/moped-and-pedestrian.jpg",
-questions:["（1）不知道巴士后方是否有突出物，须靠近中央行驶后前进。","（2）巴士认为对方车辆在等待，会停在停靠车辆前方，所以可不等待直接通过。","（3）停靠车辆旁可能有行人出现，同时须注意对向巴士，降速通过。"],
-answers:[false,false,true],explanation:"停靠车辆旁可能有行人突然出现，须降速通过。对向巴士会占用道路须提前减速等待会车。不可靠近中央行驶或强行通过。"},
-
-{id:3014,type:'kiken',scene:"跟在前车后方准备通过铁路道口。",img:"images/railway-crossing-1.jpg",
-questions:["（1）须在停止线前完全停车，确认道口另一侧有足够空间后再进入道口。","（2）须注意对向来车，但不影响在道口中央通行。","（3）对向车道的卡车与道口内车辆之间有空间，可紧跟前车迅速进入道口。"],
-answers:[true,true,false],explanation:"铁路道口须在停止线前完全停车，确认另一侧有足够空间后再通过。道口内须注意对向来车并保持间隔。绝不可在道口内停车，须确认能完全通过后再进入。"},
-
-{id:3015,type:'kiken',scene:"在高速公路加速车道上以50km/h行驶，准备汇入主线。",img:"images/highway-1.jpg",
-questions:["（1）考虑到主线后方车辆，认为可以迅速汇入，立即汇入主线。","（2）通过后视镜无法完全确认盲区，须向右斜后方转头目视充分确认。","（3）主线后方有车来，但加速车道还有余量，先汇入再在主线加速即可。"],
-answers:[false,true,false],explanation:"汇入高速主线须通过后视镜和目视充分确认来车。须在加速车道充分加速至与主线车速相近后再平滑汇入。强行汇入或低速汇入都属于危险行为。"},
-];
-
-// 补充题库 - 扩充到1000+
 const EXTRA_BANK = [
 {id:501,q:"在日本，车辆发生追尾事故时，后方车辆通常被认定为主要责任方。",a:true,e:"正确。追尾事故中，后方车辆因未保持安全跟车距离通常负主要责任。"},
 {id:502,q:"高速公路上，即使前方没有其他车辆，也不得低于最低速度（50km/h）行驶。",a:true,e:"正确。低于最低速度行驶妨碍交通流，与超速同样属于违法行为。"},
@@ -1338,354 +1114,346 @@ const EXTRA_BANK = [
 {id:800,q:"在日本，安全驾驶的核心是提前预测危险，提前采取预防措施。",a:true,e:"正确。防御性驾驶（防衛運転）的核心是危险预测，提前采取措施预防事故发生，而不是事后应对。"},
 
 ];
+const KIKEN_FLAT = [
+{id:5001,q:'【危险预知】场景：以35km/h的速度行驶，准备直行通过有信号灯的交叉路口。 （1）有轨电车正在减速，可能急停或改变方向驶入本方车道，应与其保持充分安全间隔后再前进。',img:'images/intersection-picto.jpg',a:false,e:'有轨电车可能突然停车，其左侧可能有行人。须降速确认安全，不可在状况不明时加速进入路口。'},
+{id:5002,q:'【危险预知】场景：以35km/h的速度行驶，准备直行通过有信号灯的交叉路口。 （2）前方有轨电车可能突然停下，须降速后再前进。',img:'images/intersection-picto.jpg',a:true,e:'有轨电车可能突然停车，其左侧可能有行人。须降速确认安全，不可在状况不明时加速进入路口。'},
+{id:5003,q:'【危险预知】场景：以35km/h的速度行驶，准备直行通过有信号灯的交叉路口。 （3）路口前方状况不明，应在确认有轨电车及二轮车动向、确认安全后，再进入路口。',img:'images/intersection-picto.jpg',a:false,e:'有轨电车可能突然停车，其左侧可能有行人。须降速确认安全，不可在状况不明时加速进入路口。'},
+{id:5004,q:'【危险预知】场景：以40km/h的速度行驶，准备直行通过视野良好的无信号灯交叉路口。 （1）对向车可能不停车直接右转，而侧方来车也可能不停车直接穿越，无需特别注意，继续前进即可。',img:'images/normal-road-1.jpg',a:false,e:'即使是优先道路，侧方来车也可能无视优先关系强行穿越。对向右转车可能遮挡后续来车。须降速并随时准备停车。'},
+{id:5005,q:'【危险预知】场景：以40km/h的速度行驶，准备直行通过视野良好的无信号灯交叉路口。 （2）侧方来车可能在对向车右转后紧接着穿越路口，须注意后续车辆并降速前进。',img:'images/normal-road-1.jpg',a:true,e:'即使是优先道路，侧方来车也可能无视优先关系强行穿越。对向右转车可能遮挡后续来车。须降速并随时准备停车。'},
+{id:5006,q:'【危险预知】场景：以40km/h的速度行驶，准备直行通过视野良好的无信号灯交叉路口。 （3）侧方来车可能强行穿越优先道路，须降速并做好随时停车的准备。',img:'images/normal-road-1.jpg',a:true,e:'即使是优先道路，侧方来车也可能无视优先关系强行穿越。对向右转车可能遮挡后续来车。须降速并随时准备停车。'},
+{id:5007,q:'【危险预知】场景：以30km/h的速度行驶，准备通过前方视野不良的无信号路口。 （1）前方行人正准备横穿，应在接近路口时再观察其动向，以目前速度继续前进。',img:'images/trees-blind.jpg',a:false,e:'视野不良的路口须以能立即停车的速度通过，并充分确认左右安全。不可在视野不明时保持原速前进。'},
+{id:5008,q:'【危险预知】场景：以30km/h的速度行驶，准备通过前方视野不良的无信号路口。 （2）由于路口左右视野不良，须以能立即停车的速度行驶。',img:'images/trees-blind.jpg',a:true,e:'视野不良的路口须以能立即停车的速度通过，并充分确认左右安全。不可在视野不明时保持原速前进。'},
+{id:5009,q:'【危险预知】场景：以30km/h的速度行驶，准备通过前方视野不良的无信号路口。 （3）由于前方道路可能有行人出现，须用后视镜和目视确认左右安全后通过。',img:'images/trees-blind.jpg',a:true,e:'视野不良的路口须以能立即停车的速度通过，并充分确认左右安全。不可在视野不明时保持原速前进。'},
+{id:5010,q:'【危险预知】场景：以30km/h的速度行驶，在绿灯亮起时准备直行通过信号控制路口。 （1）侧方道路的车辆可能无视信号驶入，进入路口时须确认左右安全后再前进。',img:'images/intersection-picto.jpg',a:true,e:'即使绿灯，也有车辆闯红灯的可能。对向大型车可能遮挡右转车随时驶出。侧方二轮车也可能无视红灯。须降速确认安全。'},
+{id:5011,q:'【危险预知】场景：以30km/h的速度行驶，在绿灯亮起时准备直行通过信号控制路口。 （2）对向大型货车可能遮挡右转车，须在绿灯且有余裕时尽快通过路口。',img:'images/intersection-picto.jpg',a:false,e:'即使绿灯，也有车辆闯红灯的可能。对向大型车可能遮挡右转车随时驶出。侧方二轮车也可能无视红灯。须降速确认安全。'},
+{id:5012,q:'【危险预知】场景：以30km/h的速度行驶，在绿灯亮起时准备直行通过信号控制路口。 （3）侧方道路左侧的二轮车在红灯时必定会遵守停车，以目前速度继续前进。',img:'images/intersection-picto.jpg',a:false,e:'即使绿灯，也有车辆闯红灯的可能。对向大型车可能遮挡右转车随时驶出。侧方二轮车也可能无视红灯。须降速确认安全。'},
+{id:5013,q:'【危险预知】场景：在交叉路口内等待右转机会。 （1）对向公共汽车正在妨碍视线，其后方不会有车直行，可在其前方尽快右转。',img:'images/intersection-picto.jpg',a:false,e:'对向公共汽车后方可能有直行车或二轮车超车。须等公共汽车通过后，充分确认对向来车状况再右转，不可强行抢转。'},
+{id:5014,q:'【危险预知】场景：在交叉路口内等待右转机会。 （2）公共汽车在等我右转后再直行，加上后方有跟随车辆，应尽快右转。',img:'images/intersection-picto.jpg',a:false,e:'对向公共汽车后方可能有直行车或二轮车超车。须等公共汽车通过后，充分确认对向来车状况再右转，不可强行抢转。'},
+{id:5015,q:'【危险预知】场景：在交叉路口内等待右转机会。 （3）由于公共汽车后方状况不明，须等公共汽车通过后充分确认安全再右转。',img:'images/intersection-picto.jpg',a:true,e:'对向公共汽车后方可能有直行车或二轮车超车。须等公共汽车通过后，充分确认对向来车状况再右转，不可强行抢转。'},
+{id:5016,q:'【危险预知】场景：跟在对向卡车后方，以5km/h速度在路口等待右转。 （1）由于卡车遮挡前方视线，可跟在卡车右侧右转。',img:'images/intersection-picto.jpg',a:false,e:'卡车后方的对向来车、行人及自行车可能完全被遮挡。须等卡车右转后充分确认对向状况，独立完成右转操作，不可紧跟卡车右转。'},
+{id:5017,q:'【危险预知】场景：跟在对向卡车后方，以5km/h速度在路口等待右转。 （2）由于卡车遮挡前方视线，须暂时停车等卡车右转后，确认对向来车和行人安全后再右转。',img:'images/intersection-picto.jpg',a:true,e:'卡车后方的对向来车、行人及自行车可能完全被遮挡。须等卡车右转后充分确认对向状况，独立完成右转操作，不可紧跟卡车右转。'},
+{id:5018,q:'【危险预知】场景：跟在对向卡车后方，以5km/h速度在路口等待右转。 （3）由于卡车遮挡前方视线，紧跟在卡车后面等待其右转即可。',img:'images/intersection-picto.jpg',a:false,e:'卡车后方的对向来车、行人及自行车可能完全被遮挡。须等卡车右转后充分确认对向状况，独立完成右转操作，不可紧跟卡车右转。'},
+{id:5019,q:'【危险预知】场景：以10km/h的速度行驶，准备左转进入交叉路口。 （1）前方车辆可能在行人横穿前突然停车，须注意前方间距以目前速度前进。',img:'images/intersection-picto.jpg',a:true,e:'左转时须注意多个方向的危险：前方车可能急停、后视镜有盲区、大型车左侧有行人盲区。须全面确认所有方向安全后再左转。'},
+{id:5020,q:'【危险预知】场景：以10km/h的速度行驶，准备左转进入交叉路口。 （2）准备左转时，后视镜可能有盲区存在二轮车，须转头目视直接确认后再左转。',img:'images/intersection-picto.jpg',a:true,e:'左转时须注意多个方向的危险：前方车可能急停、后视镜有盲区、大型车左侧有行人盲区。须全面确认所有方向安全后再左转。'},
+{id:5021,q:'【危险预知】场景：以10km/h的速度行驶，准备左转进入交叉路口。 （3）大型后续车辆左侧可能有行人处于盲区，须对左侧保持充分注意后再左转。',img:'images/intersection-picto.jpg',a:true,e:'左转时须注意多个方向的危险：前方车可能急停、后视镜有盲区、大型车左侧有行人盲区。须全面确认所有方向安全后再左转。'},
+{id:5022,q:'【危险预知】场景：以40km/h的速度行驶，通过住宅区道路。 （1）由于不知道巷子里是否有孩子，须多次点刹降速后前进。',img:'images/residential.jpg',a:true,e:'住宅区道路巷子里随时可能有孩子冲出，须多次点刹降速，保持能立即停车的速度。靠近中央行驶或仅鸣笛都不能有效防止危险，必须从根本上降速。'},
+{id:5023,q:'【危险预知】场景：以40km/h的速度行驶，通过住宅区道路。 （2）通过巷子出口时，与对向车会车危险，须靠近中央通过巷子出口。',img:'images/residential.jpg',a:false,e:'住宅区道路巷子里随时可能有孩子冲出，须多次点刹降速，保持能立即停车的速度。靠近中央行驶或仅鸣笛都不能有效防止危险，必须从根本上降速。'},
+{id:5024,q:'【危险预知】场景：以40km/h的速度行驶，通过住宅区道路。 （3）孩子可能从巷子里跑出到车前，应鸣笛警告后通过。',img:'images/residential.jpg',a:false,e:'住宅区道路巷子里随时可能有孩子冲出，须多次点刹降速，保持能立即停车的速度。靠近中央行驶或仅鸣笛都不能有效防止危险，必须从根本上降速。'},
+{id:5025,q:'【危险预知】场景：以40km/h的速度行驶，通过停靠中的学校巴士旁。 （1）由于不知道巴士是否起步，须以能立即停车的速度通过巴士前方。',img:'images/school-bus.jpg',a:true,e:'停靠中的学校巴士旁随时可能有儿童出现。须降速至能立即停车的速度，同时注意巴士遮挡的对向来车，并注意后方追尾风险。'},
+{id:5026,q:'【危险预知】场景：以40km/h的速度行驶，通过停靠中的学校巴士旁。 （2）由于巴士遮挡对向来车是否靠近，须确认前方安全并预判行人横穿后再前进。',img:'images/school-bus.jpg',a:true,e:'停靠中的学校巴士旁随时可能有儿童出现。须降速至能立即停车的速度，同时注意巴士遮挡的对向来车，并注意后方追尾风险。'},
+{id:5027,q:'【危险预知】场景：以40km/h的速度行驶，通过停靠中的学校巴士旁。 （3）由于后方有跟随车辆，降速时须多次点刹以防追尾。',img:'images/school-bus.jpg',a:true,e:'停靠中的学校巴士旁随时可能有儿童出现。须降速至能立即停车的速度，同时注意巴士遮挡的对向来车，并注意后方追尾风险。'},
+{id:5028,q:'【危险预知】场景：准备以10km/h接近有行人横道的路口。 （1）行人已开始横穿，须等其完全通过后再停车。',img:'images/pedestrian-crossing.jpg',a:true,e:'行人横道须等全员通过。商店附近可能有自行车突然出现。视野盲区内也可能有其他行人，须确认横道全区域安全后再通过。'},
+{id:5029,q:'【危险预知】场景：准备以10km/h接近有行人横道的路口。 （2）由于道路旁有商店，须注意可能有自行车等突然冲出后再左转。',img:'images/pedestrian-crossing.jpg',a:true,e:'行人横道须等全员通过。商店附近可能有自行车突然出现。视野盲区内也可能有其他行人，须确认横道全区域安全后再通过。'},
+{id:5030,q:'【危险预知】场景：准备以10km/h接近有行人横道的路口。 （3）视野范围以外可能还有其他行人，须确认整个横穿区域安全后再前进，必要时停车等待。',img:'images/pedestrian-crossing.jpg',a:true,e:'行人横道须等全员通过。商店附近可能有自行车突然出现。视野盲区内也可能有其他行人，须确认横道全区域安全后再通过。'},
+{id:5031,q:'【危险预知】场景：以40km/h的速度行驶，通过有护栏的弯道。 （1）对向车可能从弯道中央伸出占用本方车道，须降速靠左行驶。',img:'images/rainy-day.jpg',a:true,e:'弯道中对向车可能占用本方车道，须降速靠左行驶。护栏存在接触风险。须在进入弯道前充分减速，并适时提醒对向来车注意。'},
+{id:5032,q:'【危险预知】场景：以40km/h的速度行驶，通过有护栏的弯道。 （2）弯道内有护栏，无碰撞危险，以目前速度通过弯道再减速即可。',img:'images/rainy-day.jpg',a:false,e:'弯道中对向车可能占用本方车道，须降速靠左行驶。护栏存在接触风险。须在进入弯道前充分减速，并适时提醒对向来车注意。'},
+{id:5033,q:'【危险预知】场景：以40km/h的速度行驶，通过有护栏的弯道。 （3）由于弯道视野不良，须适时鸣笛或闪灯提醒对向来车，并降速前进。',img:'images/rainy-day.jpg',a:true,e:'弯道中对向车可能占用本方车道，须降速靠左行驶。护栏存在接触风险。须在进入弯道前充分减速，并适时提醒对向来车注意。'},
+{id:5034,q:'【危险预知】场景：以50km/h的速度行驶，通过视野不良的弯道。 （1）前方弯道急，可能转向过度撞上护栏，须降速前进。',img:'images/rainy-day-1.jpg',a:true,e:'视野不良弯道可能有对向车占道。须在进入弯道前充分降速，靠左行驶。弯道中途踩刹车容易导致侧滑，必须提前在直线段降速。'},
+{id:5035,q:'【危险预知】场景：以50km/h的速度行驶，通过视野不良的弯道。 （2）对向车不太可能出现，以目前速度进入弯道，弯道后半段再减速前进。',img:'images/rainy-day-1.jpg',a:false,e:'视野不良弯道可能有对向车占道。须在进入弯道前充分降速，靠左行驶。弯道中途踩刹车容易导致侧滑，必须提前在直线段降速。'},
+{id:5036,q:'【危险预知】场景：以50km/h的速度行驶，通过视野不良的弯道。 （3）对向车可能从弯道中央行驶过来，须降速并靠车道左侧行驶。',img:'images/rainy-day-1.jpg',a:true,e:'视野不良弯道可能有对向车占道。须在进入弯道前充分降速，靠左行驶。弯道中途踩刹车容易导致侧滑，必须提前在直线段降速。'},
+{id:5037,q:'【危险预知】场景：以40km/h行驶，前方有停靠车辆，对向有巴士驶来。 （1）不知道巴士后方是否有突出物，须靠近中央行驶后前进。',img:'images/moped-and-pedestrian.jpg',a:false,e:'停靠车辆旁可能有行人突然出现，须降速通过。对向巴士会占用道路须提前减速等待会车。不可靠近中央行驶或强行通过。'},
+{id:5038,q:'【危险预知】场景：以40km/h行驶，前方有停靠车辆，对向有巴士驶来。 （2）巴士认为对方车辆在等待，会停在停靠车辆前方，所以可不等待直接通过。',img:'images/moped-and-pedestrian.jpg',a:false,e:'停靠车辆旁可能有行人突然出现，须降速通过。对向巴士会占用道路须提前减速等待会车。不可靠近中央行驶或强行通过。'},
+{id:5039,q:'【危险预知】场景：以40km/h行驶，前方有停靠车辆，对向有巴士驶来。 （3）停靠车辆旁可能有行人出现，同时须注意对向巴士，降速通过。',img:'images/moped-and-pedestrian.jpg',a:true,e:'停靠车辆旁可能有行人突然出现，须降速通过。对向巴士会占用道路须提前减速等待会车。不可靠近中央行驶或强行通过。'},
+{id:5040,q:'【危险预知】场景：跟在前车后方准备通过铁路道口。 （1）须在停止线前完全停车，确认道口另一侧有足够空间后再进入道口。',img:'images/railway-crossing-1.jpg',a:true,e:'铁路道口须在停止线前完全停车，确认另一侧有足够空间后再通过。道口内须注意对向来车并保持间隔。绝不可在道口内停车，须确认能完全通过后再进入。'},
+{id:5041,q:'【危险预知】场景：跟在前车后方准备通过铁路道口。 （2）须注意对向来车，但不影响在道口中央通行。',img:'images/railway-crossing-1.jpg',a:true,e:'铁路道口须在停止线前完全停车，确认另一侧有足够空间后再通过。道口内须注意对向来车并保持间隔。绝不可在道口内停车，须确认能完全通过后再进入。'},
+{id:5042,q:'【危险预知】场景：跟在前车后方准备通过铁路道口。 （3）对向车道的卡车与道口内车辆之间有空间，可紧跟前车迅速进入道口。',img:'images/railway-crossing-1.jpg',a:false,e:'铁路道口须在停止线前完全停车，确认另一侧有足够空间后再通过。道口内须注意对向来车并保持间隔。绝不可在道口内停车，须确认能完全通过后再进入。'},
+{id:5043,q:'【危险预知】场景：在高速公路加速车道上以50km/h行驶，准备汇入主线。 （1）考虑到主线后方车辆，认为可以迅速汇入，立即汇入主线。',img:'images/highway-1.jpg',a:false,e:'汇入高速主线须通过后视镜和目视充分确认来车。须在加速车道充分加速至与主线车速相近后再平滑汇入。强行汇入或低速汇入都属于危险行为。'},
+{id:5044,q:'【危险预知】场景：在高速公路加速车道上以50km/h行驶，准备汇入主线。 （2）通过后视镜无法完全确认盲区，须向右斜后方转头目视充分确认。',img:'images/highway-1.jpg',a:true,e:'汇入高速主线须通过后视镜和目视充分确认来车。须在加速车道充分加速至与主线车速相近后再平滑汇入。强行汇入或低速汇入都属于危险行为。'},
+{id:5045,q:'【危险预知】场景：在高速公路加速车道上以50km/h行驶，准备汇入主线。 （3）主线后方有车来，但加速车道还有余量，先汇入再在主线加速即可。',img:'images/highway-1.jpg',a:false,e:'汇入高速主线须通过后视镜和目视充分确认来车。须在加速车道充分加速至与主线车速相近后再平滑汇入。强行汇入或低速汇入都属于危险行为。'}
+];
+// ===== 状态变量 =====
+let examType = null;  // 'g' or 'h'
+let quizMode = null;  // 'mock' or 'practice'
+let questions = [];
+let cur = 0;
+let answers = [];
+let timerID = null;
+let timeLeft = 0;
+let t0 = 0;
+let totalQ = 50;
 
-
-// ── 错题本 ──
-function getWB(){try{return JSON.parse(localStorage.getItem('wb')||'[]');}catch(e){return[];}}
-function saveWB(wb){try{localStorage.setItem('wb',JSON.stringify(wb));}catch(e){}}
-function addToWB(q){
-  let wb=getWB();
-  const ex=wb.find(x=>x.id===q.id);
-  if(ex)ex.count=(ex.count||1)+1;
-  else wb.push({id:q.id,q:q.q,a:q.a,e:q.e,count:1});
+// ===== 错题本 =====
+function getWB() {
+  try { return JSON.parse(localStorage.getItem('wb') || '[]'); } catch(e) { return []; }
+}
+function saveWB(wb) {
+  try { localStorage.setItem('wb', JSON.stringify(wb)); } catch(e) {}
+}
+function addWB(q) {
+  let wb = getWB();
+  if (!wb.find(x => x.id === q.id)) {
+    wb.push({ id: q.id, q: q.q, a: q.a, e: q.e });
+  }
   saveWB(wb);
 }
-function updateWrongBadge(){
-  const n=getWB().length;
-  const b=document.getElementById('wcBadge');
-  const s=document.getElementById('subWrongCount');
-  if(n===0){b.textContent='暂无错题';b.className='wc-badge zero';}
-  else{b.textContent=n+' 道错题';b.className='wc-badge';}
-  if(s)s.textContent=n+' 道错题';
+function refreshWBBadge() {
+  const n = getWB().length;
+  const el = document.getElementById('wbBadge');
+  if (n === 0) { el.textContent = '暂无错题'; el.className = 'wb-badge zero'; }
+  else { el.textContent = n + ' 道错题'; el.className = 'wb-badge'; }
 }
 
-// ── 导航 ──
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
+// ===== 导航 =====
+function show(id) {
+  document.querySelectorAll('.scr').forEach(s => s.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  window.scrollTo(0, 0);
 }
-function goHome(){clearInterval(timerInterval);updateWrongBadge();showScreen('home');}
-
-function goSub(type){
-  examType=type;
-  document.getElementById('subIcon').textContent=type==='g'?'🌏':'🏫';
-  document.getElementById('subTitle').textContent=type==='g'?'外国驾照换日本驾照':'本免许学科考试';
-  document.getElementById('subDesc').textContent=type==='g'?'知識確認考試 · 50题 · 30分钟 · 合格45/50（90%）':'学科試験 · 95题（90判断+5危险预知）· 50分钟 · 满分100分 · 合格90分';
-  document.getElementById('reviewRestartBtn').className='btn-main '+(type==='g'?'g':'h');
-  updateWrongBadge();
-  showScreen('sub');
+function goHome() {
+  clearInterval(timerID);
+  refreshWBBadge();
+  show('home');
 }
-
-function goWrongBook(){
-  const wb=getWB();
-  const c=document.getElementById('wbContent');
-  if(wb.length===0){
-    c.innerHTML='<div class="wb-empty"><div class="wb-empty-icon">🎉</div><div>还没有错题记录，去练习吧！</div></div>';
-  }else{
-    c.innerHTML=wb.map(q=>`
-      <div class="wb-item">
-        <div class="wb-q">${q.q}</div>
-        <div class="wb-ans">正确答案：<span class="${q.a?'wb-correct':'wb-wrong-c'}">${q.a?'○ 正确':'✕ 错误'}</span>
-        &nbsp;·&nbsp;${q.e}</div>
-      </div>`).join('')
-    +'<button class="wb-clear" onclick="clearWB()">🗑️ 清空错题本</button>';
-  }
-  showScreen('wrongbook');
+function goSub(type) {
+  examType = type;
+  document.getElementById('subIcon').textContent = type === 'g' ? '🌏' : '🏫';
+  document.getElementById('subTitle').textContent = type === 'g' ? '外国驾照换日本驾照' : '本免许学科考试';
+  document.getElementById('subInfo').textContent = type === 'g'
+    ? '知識確認考試 · 50题 · 30分钟 · 合格线90%（45/50）'
+    : '学科試験 · 95题 · 50分钟 · 满分100分 · 合格90分';
+  document.getElementById('rRetry').className = 'btn-p ' + type;
+  show('sub');
 }
-function clearWB(){if(confirm('确定要清空所有错题记录吗？')){saveWB([]);updateWrongBadge();goWrongBook();}}
-
-// ── 开始答题 ──
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-
-function startQuiz(mode){
-  quizMode=mode;
-  const judgeBase=[...(examType==='g'?GAIMEN_BANK:HONMEN_BANK),...IMG_SIGN_BANK,...EXTRA_BANK];
-
-  if(examType==='h'){
-    // 本免许：90道判断题 + 随机抽5道危险预知题
-    const judgeQs=shuffle(judgeBase).slice(0,90);
-    const kikenQs=shuffle([...KIKEN_BANK]).slice(0,5);
-    questions=[...judgeQs,...kikenQs];
+function goWB() {
+  const wb = getWB();
+  const c = document.getElementById('wbContent');
+  if (wb.length === 0) {
+    c.innerHTML = '<div class="wb-empty">🎉<br><br>还没有错题！去练习吧。</div>';
   } else {
-    // 外免切替：50道判断题（不含危险预知）
-    questions=shuffle(judgeBase).slice(0,50);
+    c.innerHTML = wb.map(q => `
+      <div class="wi">
+        <div class="wi-q">${q.q}</div>
+        <div class="wi-ans">正确答案：<span class="${q.a ? 'ri-correct' : 'ri-wrong'}">${q.a ? '○ 正确' : '✕ 错误'}</span>
+        &nbsp;·&nbsp;${q.e}</div>
+      </div>`).join('') +
+      '<button class="clear-btn" onclick="clearWB()">🗑️ 清空错题本</button>';
+  }
+  show('wb');
+}
+function clearWB() {
+  if (confirm('确定清空所有错题记录？')) { saveWB([]); refreshWBBadge(); goWB(); }
+}
+
+// ===== 开始答题 =====
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function go(mode) {
+  quizMode = mode;
+  const base = examType === 'g' ? [...GAIMEN_BANK, ...EXTRA_BANK] : [...HONMEN_BANK, ...EXTRA_BANK];
+
+  if (examType === 'h') {
+    // 本免许：90道判断题 + 5道危险预知（展开后的）
+    const judge = shuffle(base).slice(0, 90);
+    const kiken = shuffle([...KIKEN_FLAT]).slice(0, 5);
+    questions = [...judge, ...kiken];
+    totalQ = 95;
+    timeLeft = 3000;
+  } else {
+    // 外免切替：50道判断题
+    questions = shuffle(base).slice(0, 50);
+    totalQ = 50;
+    timeLeft = 1800;
   }
 
-  currentIdx=0; answers=[];
-  timeLeft=examType==='g'?1800:3000;
-  startTime=Date.now();
+  cur = 0;
+  answers = [];
+  t0 = Date.now();
 
-  const cls=examType==='g'?'g':'h';
-  const badge=document.getElementById('quizBadge');
-  badge.textContent=examType==='g'?'外免切替':'本免许';
-  badge.className='qbadge '+cls;
-  document.getElementById('progFill').className='prog-fill '+cls;
-  document.querySelectorAll('.q-num').forEach(el=>el.className='q-num '+cls);
+  // 设置UI颜色
+  const cls = examType;
+  document.getElementById('qBadge').textContent = examType === 'g' ? '外免切替' : '本免许';
+  document.getElementById('qBadge').className = 'qbadge ' + cls;
+  document.getElementById('qFill').className = 'progfill ' + cls;
 
-  const total=questions.length;
-  const timer=document.getElementById('timerDisplay');
-  if(mode==='mock'){
-    timer.style.display='inline-block';
-    timer.textContent=examType==='g'?'30:00':'50:00';
-    timer.classList.remove('warn');
-    startTimer();
-  }else{
-    timer.style.display='none';
-    clearInterval(timerInterval);
+  // 计时器
+  clearInterval(timerID);
+  const timerEl = document.getElementById('qTimer');
+  if (mode === 'mock') {
+    timerEl.className = 'qtimer';
+    timerEl.textContent = examType === 'g' ? '30:00' : '50:00';
+    timerID = setInterval(() => {
+      timeLeft--;
+      const m = Math.floor(timeLeft / 60);
+      const s = timeLeft % 60;
+      timerEl.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+      if (timeLeft <= 300) timerEl.classList.add('warn');
+      if (timeLeft <= 0) { clearInterval(timerID); finish(); }
+    }, 1000);
+  } else {
+    timerEl.className = 'qtimer hidden';
   }
-  showScreen('quiz');
+
+  show('quiz');
   renderQ();
 }
 
-let kikenSubIdx = 0; // 危险预知题当前小问索引
+// ===== 渲染题目 =====
+function renderQ() {
+  const q = questions[cur];
+  const total = questions.length;
 
-function renderQ(){
-  // 强制重置按钮状态（防止上一题状态残留）
-  ['btnTrue','btnFalse'].forEach(id=>{
-    const b=document.getElementById(id);
-    b.className='ans-btn';
-    b.disabled=false;
-    b.style.cursor='pointer';
-    b.style.opacity='1';
-  });
-  const q=questions[currentIdx];
-  const total=questions.length;
-  document.getElementById('progText').textContent=`第 ${currentIdx+1} 题 / 共 ${total} 题`;
-  document.getElementById('progFill').style.width=`${(currentIdx/total)*100}%`;
-  document.getElementById('expl').className='expl';
-  document.getElementById('expl').innerHTML='';
-  document.getElementById('nextBtn').className='next-btn';
+  // 重置按钮（必须在最开始）
+  const btnO = document.getElementById('btnO');
+  const btnX = document.getElementById('btnX');
+  btnO.className = 'abtn';
+  btnO.disabled = false;
+  btnX.className = 'abtn';
+  btnX.disabled = false;
 
-  if(q.type==='kiken'){
-    // 危险预知题
-    kikenSubIdx=0;
-    renderKikenSub(q);
+  // 重置其他UI
+  document.getElementById('expl').className = 'expl';
+  document.getElementById('expl').innerHTML = '';
+  document.getElementById('nxtBtn').className = 'nextbtn';
+
+  // 进度
+  document.getElementById('qProg').textContent = `第${cur + 1}题/共${total}题`;
+  document.getElementById('qFill').style.width = `${(cur / total) * 100}%`;
+  document.getElementById('qNum').textContent = `第${cur + 1}题`;
+
+  // 题目和图片
+  let imgHtml = '';
+  if (q.img) {
+    imgHtml = `<img class="qimg" src="${q.img}" alt="题目图片" onerror="this.style.display='none'">`;
+  }
+  document.getElementById('qText').innerHTML = imgHtml + q.q;
+}
+
+// ===== 答题 =====
+function ans(userAns) {
+  const q = questions[cur];
+  const correct = userAns === q.a;
+
+  // 记录答案
+  answers.push({ correct, userAns, q });
+
+  // 禁用按钮
+  document.getElementById('btnO').disabled = true;
+  document.getElementById('btnX').disabled = true;
+
+  // 按钮着色
+  if (q.a === true) {
+    document.getElementById('btnO').className = 'abtn correct';
+    if (!correct) document.getElementById('btnX').className = 'abtn wrong';
   } else {
-    // 普通题（含标志图示题）
-    document.getElementById('qNum').textContent=`第 ${currentIdx+1} 题`;
-    let imgHtml='';
-    if(q.img){
-      // img字段已包含完整路径（images/xxx）或data:格式
-      const imgSrc = q.img.startsWith('data:') || q.img.startsWith('images/') || q.img.startsWith('http') ? q.img : 'images/'+q.img;
-      imgHtml=`<img src="${imgSrc}" style="width:100%;max-width:220px;height:auto;display:block;margin:10px auto 8px;border-radius:8px;background:#f8f8f8;padding:6px;object-fit:contain;" onerror="this.style.display='none'">`;
-    }
-    document.getElementById('qText').innerHTML=imgHtml+(q.q||'');
-    ['btnTrue','btnFalse'].forEach(id=>{const b=document.getElementById(id);b.className='ans-btn';b.disabled=false;});
+    document.getElementById('btnX').className = 'abtn correct';
+    if (!correct) document.getElementById('btnO').className = 'abtn wrong';
+  }
+
+  // 错题加入错题本
+  if (!correct) addWB(q);
+
+  // 显示解析
+  const expl = document.getElementById('expl');
+  if (quizMode === 'practice') {
+    expl.innerHTML = `<strong>${correct ? '✓ 答对了！' : '✗ 答错了。'}</strong><br>${q.e}`;
+    expl.className = 'expl show';
+  } else {
+    // 模拟考试只显示对错
+    expl.innerHTML = correct
+      ? '<strong style="color:var(--green)">✓ 正确</strong>'
+      : '<strong style="color:var(--red)">✗ 错误</strong>';
+    expl.className = 'expl show';
+  }
+
+  // 显示下一题按钮
+  const nb = document.getElementById('nxtBtn');
+  nb.className = 'nextbtn show';
+  nb.textContent = (cur + 1 >= questions.length) ? '查看结果 →' : '下一题 →';
+
+  // 滚动到按钮
+  setTimeout(() => nb.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+}
+
+// ===== 下一题 =====
+function next() {
+  cur++;
+  if (cur >= questions.length) {
+    finish();
+  } else {
+    renderQ();
+    window.scrollTo(0, 0);
   }
 }
 
-function renderKikenSub(q){
-  const sub=q.questions[kikenSubIdx];
-  document.getElementById('qNum').textContent=`第 ${currentIdx+1} 题 · 危险预知（${kikenSubIdx+1}/3）`;
-  const imgHtml=`<div style="background:#f0f0f0;border-radius:10px;overflow:hidden;margin-bottom:8px;"><img src="${q.img}" style="width:100%;height:160px;object-fit:cover;display:block;" onerror="this.style.display='none'"></div><div style="font-size:11px;color:var(--ink-soft);margin-bottom:6px;">🚗 场景：${q.scene}</div>`;
-  document.getElementById('qText').innerHTML=imgHtml+sub;
-  ['btnTrue','btnFalse'].forEach(id=>{const b=document.getElementById(id);b.className='ans-btn';b.disabled=false;});
-}
+// ===== 完成 =====
+function finish() {
+  clearInterval(timerID);
+  const elapsed = Math.floor((Date.now() - t0) / 1000);
+  const mins = Math.floor(elapsed / 60);
+  const secs = elapsed % 60;
 
-function submitAnswer(userAnswer){
-  const q=questions[currentIdx];
-  document.getElementById('btnTrue').disabled=true;
-  document.getElementById('btnFalse').disabled=true;
+  let score, pass;
+  const correct = answers.filter(a => a.correct).length;
+  const wrong = answers.length - correct;
 
-  if(q.type==='kiken'){
-    // 危险预知题：每个小问独立判断
-    const correctAns=q.answers[kikenSubIdx];
-    const correct=userAnswer===correctAns;
-    // 小问结果记录
-    if(!q._subResults) q._subResults=[];
-    q._subResults.push({correct,userAnswer,subIdx:kikenSubIdx});
-    // 按钮着色
-    if(correctAns===true){
-      document.getElementById('btnTrue').classList.add('correct');
-      if(!correct)document.getElementById('btnFalse').classList.add('wrong');
-    }else{
-      document.getElementById('btnFalse').classList.add('correct');
-      if(!correct)document.getElementById('btnTrue').classList.add('wrong');
-    }
-    const el=document.getElementById('expl');
-    if(quizMode==='practice'){
-      el.innerHTML=`<strong>${correct?'✓ 答对了！':'✗ 答错了。'}</strong>`;
-      el.className='expl show';
-    }else{
-      el.innerHTML=correct?'<strong style="color:var(--green)">✓ 正确</strong>':'<strong style="color:var(--red)">✗ 错误</strong>';
-      el.className='expl show';
-    }
-    kikenSubIdx++;
-    if(kikenSubIdx<3){
-      // 还有下一个小问
-      document.getElementById('nextBtn').textContent='下一小问 →';
-      document.getElementById('nextBtn').className='next-btn show';
-      setTimeout(()=>document.getElementById('nextBtn').scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
-    }else{
-      // 三小问完成，判断整体是否全对
-      const allCorrect=q._subResults.every(r=>r.correct);
-      const wrongCount=q._subResults.filter(r=>!r.correct).length;
-      answers.push({correct:allCorrect,userAnswer,q,wrongCount});
-      if(!allCorrect)addToWB({...q,q:q.scene,e:q.explanation});
-      if(quizMode==='practice'){
-        el.innerHTML=`<strong>${allCorrect?'🎉 三题全对！':'⚠️ 本组有'+wrongCount+'题答错'}</strong><br><span style="font-size:12px">${q.explanation}</span>`;
-        el.className='expl show';
-      }
-      document.getElementById('nextBtn').textContent='下一题 →';
-      document.getElementById('nextBtn').className='next-btn show';
-      setTimeout(()=>document.getElementById('nextBtn').scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
-    }
+  if (examType === 'h') {
+    // 本免许100分制
+    score = correct; // 每题1分（含危险预知，简化处理）
+    pass = score >= 86; // 95题中答对86题约等于90分
+    document.getElementById('rDen').textContent = '/ 95';
+    document.getElementById('rSub').textContent = pass
+      ? `答对${correct}题，通过合格线！`
+      : `答对${correct}题，合格线86题，继续加油！`;
+    document.getElementById('rRight').textContent = correct + '题';
+    document.getElementById('rWrong').textContent = wrong + '题';
   } else {
-    // 普通题
-    const correct=userAnswer===q.a;
-    answers.push({correct,userAnswer,q});
-    if(q.a===true){
-      document.getElementById('btnTrue').classList.add('correct');
-      if(!correct)document.getElementById('btnFalse').classList.add('wrong');
-    }else{
-      document.getElementById('btnFalse').classList.add('correct');
-      if(!correct)document.getElementById('btnTrue').classList.add('wrong');
-    }
-    if(!correct)addToWB(q);
-    const el=document.getElementById('expl');
-    if(quizMode==='practice'){
-      el.innerHTML=`<strong>${correct?'✓ 答对了！':'✗ 答错了。'}</strong><br>${q.e}`;
-      el.className='expl show';
-    }else{
-      el.innerHTML=correct?'<strong style="color:var(--green)">✓ 正确</strong>':'<strong style="color:var(--red)">✗ 错误</strong>';
-      el.className='expl show';
-    }
-    document.getElementById('nextBtn').textContent='下一题 →';
-    document.getElementById('nextBtn').className='next-btn show';
-    // 自动滚动到nextBtn确保手机端可见
-    setTimeout(()=>document.getElementById('nextBtn').scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
-  }
-}
-
-function nextQuestion(){
-  const q=questions[currentIdx];
-  if(q && q.type==='kiken' && kikenSubIdx<3){
-    // 危险预知题：进入下一小问，重置UI
-    document.getElementById('expl').className='expl';
-    document.getElementById('expl').innerHTML='';
-    document.getElementById('nextBtn').className='next-btn';
-    document.getElementById('nextBtn').textContent='下一题 →';
-    ['btnTrue','btnFalse'].forEach(id=>{
-      const b=document.getElementById(id);
-      b.className='ans-btn';
-      b.disabled=false;
-      b.style.cursor='pointer';
-      b.style.opacity='1';
-    });
-    renderKikenSub(q);
-  } else {
-    // 普通题或危险预知题组完成：进入下一题
-    if(q && q.type==='kiken') q._subResults=undefined; // 清理状态
-    currentIdx++;
-    if(currentIdx>=questions.length)finishQuiz();
-    else renderQ();
-  }
-}
-
-function finishQuiz(){
-  clearInterval(timerInterval);
-  const elapsed=Math.floor((Date.now()-startTime)/1000);
-  const mins=Math.floor(elapsed/60),secs=elapsed%60;
-
-  let score, total, pass, correct, wrong;
-
-  if(examType==='h'){
-    // 本免许：判断题每题1分，危险预知题全对2分否则0分，满分100
-    score=0;
-    correct=0; wrong=0;
-    answers.forEach(a=>{
-      if(a.q.type==='kiken'){
-        // 危险预知：三小问全对得2分
-        const allRight=a.wrongCount===0;
-        if(allRight){ score+=2; correct++; } else { wrong++; }
-      } else {
-        if(a.correct){ score+=1; correct++; } else { wrong++; }
-      }
-    });
-    total=100;
-    pass=score>=90;
-    document.getElementById('scoreNum').textContent=score;
-    document.getElementById('scoreCircle').className='score-circle '+(pass?'pass':'fail');
-    document.getElementById('verdict').textContent=pass?'🎉 合格！':'😔 未合格';
-    document.getElementById('verdictSub').textContent=pass
-      ?`得分${score}分，通过合格线（90分）！`
-      :`得分${score}分，合格线90分，差${90-score}分，继续加油！`;
-    document.getElementById('metaCorrect').textContent=score+'分';
-    document.getElementById('metaWrong').textContent=(total-score)+'分';
-  } else {
-    // 外免切替：50题，答对数
-    correct=answers.filter(a=>a.correct).length;
-    wrong=50-correct;
-    pass=correct>=45;
-    document.getElementById('scoreNum').textContent=correct;
-    document.getElementById('scoreCircle').className='score-circle '+(pass?'pass':'fail');
-    document.getElementById('verdict').textContent=pass?'🎉 合格！':'😔 未合格';
-    document.getElementById('verdictSub').textContent=pass
-      ?`答对${correct}道，只错了${wrong}道，已超过合格线！`
-      :`答对${correct}道，错了${wrong}道，合格线45道，继续加油！`;
-    document.getElementById('metaCorrect').textContent=correct+'题';
-    document.getElementById('metaWrong').textContent=wrong+'题';
+    // 外免切替50题
+    score = correct;
+    pass = score >= 45;
+    document.getElementById('rDen').textContent = '/ 50';
+    document.getElementById('rSub').textContent = pass
+      ? `答对${correct}道，只错了${wrong}道，已超过合格线！`
+      : `答对${correct}道，错了${wrong}道，合格线45道，继续加油！`;
+    document.getElementById('rRight').textContent = correct + '题';
+    document.getElementById('rWrong').textContent = wrong + '题';
   }
 
-  document.getElementById('metaTime').textContent=`${mins}分${secs}秒`;
-  document.getElementById('scoreDenom').textContent=examType==='h'?'/ 100':'/ 50';
+  document.getElementById('rScore').textContent = score;
+  document.getElementById('rCircle').className = 'score-circle ' + (pass ? 'pass' : 'fail');
+  document.getElementById('rVerdict').textContent = pass ? '🎉 合格！' : '😔 未合格';
+  document.getElementById('rTime').textContent = `${mins}分${secs}秒`;
 
   // 错题复盘
-  const wrongAnswers=answers.filter(a=>!a.correct);
-  const listTitle=document.getElementById('reviewListTitle');
-  const list=document.getElementById('reviewList');
-  if(wrongAnswers.length===0){
-    listTitle.textContent='✅ 全部答对，太厉害了！';
-    list.innerHTML='';
-  }else{
-    listTitle.textContent=`错题复盘（共 ${wrongAnswers.length} 道）`;
-    list.innerHTML=wrongAnswers.map((a,i)=>{
-      if(a.q.type==='kiken'){
-        return `<div class="review-item wrong-item">
-          <div class="ri-header"><span class="ri-num">第${answers.indexOf(a)+1}题</span><span class="ri-tag w">✕ 危险预知</span></div>
-          <div class="ri-q">🚗 ${a.q.scene}</div>
-          <div class="ri-expl">${a.q.explanation}</div>
-        </div>`;
-      }
-      return `<div class="review-item wrong-item">
-        <div class="ri-header"><span class="ri-num">第 ${answers.indexOf(a)+1} 题</span><span class="ri-tag w">✕ 答错</span></div>
-        <div class="ri-q">${a.q.q||a.q.scene}</div>
+  const wrongList = answers.filter(a => !a.correct);
+  const revTitle = document.getElementById('revTitle');
+  const revList = document.getElementById('revList');
+
+  if (wrongList.length === 0) {
+    revTitle.textContent = '✅ 全部答对，太厉害了！';
+    revList.innerHTML = '';
+  } else {
+    revTitle.textContent = `错题复盘（共 ${wrongList.length} 道）`;
+    revList.innerHTML = wrongList.map((a, i) => `
+      <div class="ri">
+        <div class="ri-num">第 ${answers.indexOf(a) + 1} 题</div>
+        <div class="ri-q">${a.q.q}</div>
         <div class="ri-ans">
-          <span>正确答案：<span class="ri-correct">${a.q.a?'○ 正确':'✕ 错误'}</span></span>
-          <span>你的答案：<span class="ri-wrong-ans">${a.userAnswer?'○ 正确':'✕ 错误'}</span></span>
+          正确答案：<span class="ri-correct">${a.q.a ? '○ 正确' : '✕ 错误'}</span>
+          &nbsp;·&nbsp;你选了：<span class="ri-wrong">${a.userAns ? '○ 正确' : '✕ 错误'}</span>
         </div>
-        <div class="ri-expl">${a.q.e||''}</div>
-      </div>`;
-    }).join('');
+        <div class="ri-e">${a.q.e}</div>
+      </div>`).join('');
   }
 
-  updateWrongBadge();
-  showScreen('review');
+  refreshWBBadge();
+  show('result');
 }
 
-function startTimer(){
-  clearInterval(timerInterval);
-  const d=document.getElementById('timerDisplay');
-  timerInterval=setInterval(()=>{
-    timeLeft--;
-    const m=Math.floor(timeLeft/60),s=timeLeft%60;
-    d.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    if(timeLeft<=300)d.classList.add('warn');
-    if(timeLeft<=0){clearInterval(timerInterval);finishQuiz();}
-  },1000);
+function retry() { clearInterval(timerID); go(quizMode); }
+function quit() {
+  if (confirm('确定要退出本次练习吗？')) { clearInterval(timerID); goSub(examType); }
 }
 
-function restartQuiz(){clearInterval(timerInterval);startQuiz(quizMode);}
-function exitQuiz(){
-  if(confirm('确定要退出吗？本次答题记录将不会保存。')){
-    clearInterval(timerInterval);
-    goSub(examType);
-  }
-}
+// 初始化
+document.addEventListener('DOMContentLoaded', refreshWBBadge);
 
-// ── Init ──
-document.addEventListener('DOMContentLoaded',updateWrongBadge);
 </script>
 </body>
 </html>
